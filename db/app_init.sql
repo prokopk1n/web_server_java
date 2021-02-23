@@ -49,8 +49,8 @@ CREATE TABLE IF NOT EXISTS Perfomances (
 	"name" TEXT NOT NULL,
 	description TEXT NOT NULL,
 	duration TIME NOT NULL,
-	"start" TIMESTAMP NOT NULL,
-	"finish" TIMESTAMP NOT NULL,
+	"start" DATE DEFAULT NULL,
+	"finish" DATE DEFAULT NULL,
 	poster TEXT DEFAULT NULL
 );
 
