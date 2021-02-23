@@ -1,1 +1,2 @@
-# app_tickets
+# Схема Базы данных
+![alt text](pictures/DB_scheme.png)
