@@ -104,7 +104,7 @@ INSERT INTO People("name",description,photo) VALUES
 	'people/c18630719392d94a6e1957b04b106cdb.jpg');
 
 
-INSERT INTO Perf_members(perfomance_id, people_id, "role") VALUES
+INSERT INTO Perf_persons(perfomance_id, people_id, "role") VALUES
 	(2,1,'Автор и режиссёр'),
 	(2,2,'Артём'),
 	(2,3,'Эдуард'),
