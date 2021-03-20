@@ -6,19 +6,19 @@ INSERT INTO Theaters ("name", address, email, phone, photo, "map" ) VALUES
 	 '/home/sergei/app_ticket/theaters/Mxat/Mxat.jpeg',
 	 '/home/sergei/app_ticket/theaters/Mxat/Mxat_map.png');
 	 
-INSERT INTO Perfomances (theater_id, "name", duration, "start", "finish", "description", "poster") VALUES
+INSERT INTO Performances (theater_id, "name", duration, "start", "finish", "description", "poster") VALUES
 	(1, 'Дон Карлос', '03:00', '2013-12-17', '2013-12-17', 'Премьера состоялась 11 марта 1867 г. «Карлоса» восприняли неоднозначно и критики,
 	 и зрители. Были горячие поклонники, например, Джоаккино Россини, который писал издателю Рикорди:
 	 «Передайте Верди, чтобы он потребовал большой гонорар, будучи единственным композитором, способным сочинить настоящую „большую оперу“, 
 	 да простят меня остальные мои коллеги». А были и ярые противники, и среди них, к примеру, Жорж Бизе («Ни мелодии, ни акцентов... Верди больше не итальянец. 
 	 Он хочет писать, как Вагнер... У него больше нет его недостатков, но и все свои достоинства он тоже потерял»).',
-	'/home/sergei/app_ticket/Perfomances/1907f68476db231a016034624b23990e.jpg'),
+	'/home/sergei/app_ticket/Performances/1907f68476db231a016034624b23990e.jpg'),
 	(2, 'Весы', '02:00', '2021-02-21', '2021-03-23', 
 	 'Сцена Московского Художественного театра стала очередной площадкой для произведений Гришковца. Новый авторский спектакль «Весы» включает немалое количество персонажей, 
 	 исполнение которых возложено на мастеров актерского искусства: Игоря Золотовицкого, Веру Харыбину, Валерия Трошина, Сергея Угрюмова, Артёма Соколова и других не менее известных актёров.
 	 В программе о спектакле «Весы» написано, что данная постановка – это «ночь в одном действии», а москвичи уже вовсю заказывают билеты!
 	 Немудрено, ведь все спектакли Гришковца проходят при абсолютных аншлагах.',
-	 '/home/sergei/app_ticket/Perfomances/78882.jpg');
+	 '/home/sergei/app_ticket/Performances/78882.jpg');
 	 
 INSERT INTO Concert_halls(theater_id, "name", scheme) VALUES
 	(1, 'Новая сцена', '/home/sergei/app_ticket/concert_halls/bt-scenes_small.jpg'),
@@ -104,7 +104,7 @@ INSERT INTO People("name",description,photo) VALUES
 	'people/c18630719392d94a6e1957b04b106cdb.jpg');
 
 
-INSERT INTO Perf_persons(perfomance_id, people_id, "role") VALUES
+INSERT INTO Perf_persons(performance_id, people_id, "role") VALUES
 	(2,1,'Автор и режиссёр'),
 	(2,2,'Артём'),
 	(2,3,'Эдуард'),
@@ -151,7 +151,7 @@ INSERT INTO Seats(hall_id,seat_type,"section",side,"row",seat) VALUES
 (2,3,NULL,NULL,2,2),
 (2,3,NULL,NULL,2,3);
 
-INSERT INTO Schedule(hall_id,perfomance_id,"date") VALUES
+INSERT INTO Schedule(hall_id,performance_id,"date") VALUES
 	(1,1,'2021-03-15 15:30'),
 	(2,2,'2021-03-21 19:15');
 	
