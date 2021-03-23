@@ -6,6 +6,7 @@ import entity.Performances.Performances;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name="Schedule", schema = "public")
@@ -44,6 +45,35 @@ public class Schedule {
     }
 
     public Schedule() {
+    }
+
+    public Schedule(long event_id, Timestamp date) {
+        this.event_id = event_id;
+        this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "event_id=" + event_id +
+                ", concert_halls=" + concert_halls +
+                ", performances=" + performances +
+                ", tickets=" + tickets +
+                ", date=" + date +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Schedule schedule = (Schedule) o;
+        return event_id == schedule.event_id && Objects.equals(concert_halls, schedule.concert_halls) && Objects.equals(performances, schedule.performances) && Objects.equals(tickets, schedule.tickets) && Objects.equals(date, schedule.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(event_id, concert_halls, performances, tickets, date);
     }
 
     @Id

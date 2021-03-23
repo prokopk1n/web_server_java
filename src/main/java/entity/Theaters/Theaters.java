@@ -5,6 +5,7 @@ import entity.Performances.Performances;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name="Theaters", schema = "public")
@@ -95,6 +96,29 @@ public class Theaters {
                 ", photo='" + photo + '\'' +
                 ", map='" + map + '\'' +
                 '}';
+    }
+
+    public Theaters(long theater_id, String name, String email, String address, String phone, String photo, String map) {
+        this.theater_id = theater_id;
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+        this.photo = photo;
+        this.map = map;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Theaters theaters = (Theaters) o;
+        return theater_id == theaters.theater_id && Objects.equals(name, theaters.name) && Objects.equals(email, theaters.email) && Objects.equals(address, theaters.address) && Objects.equals(phone, theaters.phone) && Objects.equals(photo, theaters.photo) && Objects.equals(map, theaters.map) && Objects.equals(perfomances, theaters.perfomances) && Objects.equals(concert_halls, theaters.concert_halls);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(theater_id, name, email, address, phone, photo, map, perfomances, concert_halls);
     }
 
     @Id

@@ -77,6 +77,14 @@ public class Seats {
     public Seats() {
     }
 
+    public Seats(long seat_id, int section, char side, int row, int seat) {
+        this.seat_id = seat_id;
+        this.section = section;
+        this.side = side;
+        this.row = row;
+        this.seat = seat;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long seat_id;

@@ -49,6 +49,13 @@ public class People {
     public People() {
     }
 
+    public People(long people_id, String name, String description, String photo) {
+        this.people_id = people_id;
+        this.name = name;
+        this.description = description;
+        this.photo = photo;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "people_id")

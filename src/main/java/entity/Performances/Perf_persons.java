@@ -42,6 +42,11 @@ public class Perf_persons {
     public Perf_persons() {
     }
 
+    public Perf_persons(long person_id, String role) {
+        this.person_id = person_id;
+        this.role = role;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id")

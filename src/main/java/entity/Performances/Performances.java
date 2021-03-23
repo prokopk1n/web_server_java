@@ -6,6 +6,7 @@ import entity.Tickets.Schedule;
 import javax.persistence.*;
 import java.sql.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name="Performances", schema = "public")
@@ -87,6 +88,28 @@ public class Performances {
     public Performances() {
     }
 
+    public Performances(long performance_id, String name, Time duration, Date start, Date finish, String description, String poster) {
+        this.performance_id = performance_id;
+        this.name = name;
+        this.duration = duration;
+        this.start = start;
+        this.finish = finish;
+        this.description = description;
+        this.poster = poster;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Performances that = (Performances) o;
+        return performance_id == that.performance_id && Objects.equals(theaters, that.theaters) && Objects.equals(name, that.name) && Objects.equals(duration, that.duration) && Objects.equals(start, that.start) && Objects.equals(finish, that.finish) && Objects.equals(description, that.description) && Objects.equals(poster, that.poster) && Objects.equals(perf_persons, that.perf_persons) && Objects.equals(schedule, that.schedule);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(performance_id, theaters, name, duration, start, finish, description, poster, perf_persons, schedule);
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
