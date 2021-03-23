@@ -98,8 +98,7 @@ public class Theaters {
                 '}';
     }
 
-    public Theaters(long theater_id, String name, String email, String address, String phone, String photo, String map) {
-        this.theater_id = theater_id;
+    public Theaters(String name, String email, String address, String phone, String photo, String map) {
         this.name = name;
         this.email = email;
         this.address = address;
@@ -108,12 +107,11 @@ public class Theaters {
         this.map = map;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Theaters theaters = (Theaters) o;
-        return theater_id == theaters.theater_id && Objects.equals(name, theaters.name) && Objects.equals(email, theaters.email) && Objects.equals(address, theaters.address) && Objects.equals(phone, theaters.phone) && Objects.equals(photo, theaters.photo) && Objects.equals(map, theaters.map) && Objects.equals(perfomances, theaters.perfomances) && Objects.equals(concert_halls, theaters.concert_halls);
+    public boolean equals(Theaters theaters) {
+        return theater_id == theaters.getTheater_id() && name.equals(theaters.getName())
+                && email.equals(theaters.getEmail()) && address.equals(theaters.getAddress())
+                && phone.equals(theaters.getPhone()) && photo.equals(theaters.getPhoto())
+                && map.equals(theaters.getMap());
     }
 
     @Override
