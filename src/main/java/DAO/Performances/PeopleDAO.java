@@ -1,11 +1,7 @@
 package DAO.Performances;
 
+import DAO.BaseDAO.baseDAO;
 import entity.Performances.People;
 
-import java.sql.SQLException;
-import java.util.List;
-
-interface PeopleDAO {
-    People getObjectById(Long objectId) throws SQLException;
-    List<People> getAll() throws SQLException;
+interface PeopleDAO extends baseDAO<People> {
 }

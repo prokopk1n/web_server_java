@@ -6,13 +6,12 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import util.HibernateSessionFactoryUtil;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Concert_hallsDAOImp extends baseDAOImpl<Concert_halls> implements Concert_hallsDAO {
     @Override
-    public Concert_halls getObjectById(Long objectId) throws SQLException {
+    public Concert_halls getObjectById(Long objectId){
         Session session = null;
         Concert_halls object = null;
         try {
@@ -29,7 +28,7 @@ public class Concert_hallsDAOImp extends baseDAOImpl<Concert_halls> implements C
     }
 
     @Override
-    public List<Concert_halls> getAll() throws SQLException {
+    public List<Concert_halls> getAll(){
         Session session = null;
         List<Concert_halls> concert_halls= new ArrayList<Concert_halls>();
         try {

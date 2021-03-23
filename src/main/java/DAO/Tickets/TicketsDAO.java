@@ -1,12 +1,8 @@
 package DAO.Tickets;
 
+import DAO.BaseDAO.baseDAO;
 import entity.Tickets.Tickets;
 
-import java.sql.SQLException;
-import java.util.List;
-
-interface TicketsDAO {
-    Tickets getObjectById(Long objectId) throws SQLException;
-    List<Tickets> getAll() throws SQLException;
+interface TicketsDAO extends baseDAO<Tickets> {
 }
 

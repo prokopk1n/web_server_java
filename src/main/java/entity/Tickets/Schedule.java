@@ -47,8 +47,8 @@ public class Schedule {
     }
 
     @Id
-    @SequenceGenerator(name = "schedule_seq", sequenceName = "schedule_event_id_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "schedule_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "event_id")
     private long event_id;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -7,12 +7,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "entities.entity.Concert_halls", schema = "public")
+@Table(name = "Concert_halls", schema = "public")
 public class Concert_halls {
 
     @Id
-    @SequenceGenerator(name = "concert_halls_seq", sequenceName = "concert_halls_hall_id_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "concert_halls_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long hall_id;
 
     @Column(name = "name")

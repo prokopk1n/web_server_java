@@ -1,9 +1,11 @@
 package DAO.BaseDAO;
 
-import java.sql.SQLException;
+import java.util.List;
 
-interface baseDAO<T> {
-    void save(T object) throws SQLException;
-    void update(T object) throws SQLException;
-    void delete(T object) throws SQLException;
+public interface baseDAO<T> {
+    void save(T object);
+    void update(T object);
+    void delete(T object);
+    T getObjectById(Long objectId);
+    List<T> getAll();
 }

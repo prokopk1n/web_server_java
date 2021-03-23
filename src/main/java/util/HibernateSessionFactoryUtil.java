@@ -16,6 +16,7 @@ public class HibernateSessionFactoryUtil {
                 Configuration configuration = new Configuration().configure();
                 configuration.addAnnotatedClass(entity.Performances.Performances.class);
                 configuration.addAnnotatedClass(entity.Performances.Perf_persons.class);
+                configuration.addAnnotatedClass(entity.Performances.People.class);
                 configuration.addAnnotatedClass(entity.Theaters.Theaters.class);
                 configuration.addAnnotatedClass(entity.Tickets.Schedule.class);
                 configuration.addAnnotatedClass(entity.Tickets.Tickets.class);

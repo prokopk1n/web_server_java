@@ -6,13 +6,12 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import util.HibernateSessionFactoryUtil;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SeatsDAOImpl extends baseDAOImpl<Seats> implements SeatsDAO {
     @Override
-    public Seats getObjectById(Long objectId) throws SQLException {
+    public Seats getObjectById(Long objectId){
         Session session = null;
         Seats object = null;
         try {
@@ -29,7 +28,7 @@ public class SeatsDAOImpl extends baseDAOImpl<Seats> implements SeatsDAO {
     }
 
     @Override
-    public List<Seats> getAll() throws SQLException {
+    public List<Seats> getAll(){
         Session session = null;
         List<Seats> seats= new ArrayList<Seats>();
         try {
@@ -40,7 +39,7 @@ public class SeatsDAOImpl extends baseDAOImpl<Seats> implements SeatsDAO {
             session.getTransaction().commit();
 
         } catch (Exception e) {
-            System.out.println("Exception in Performances.getQuery: " + e);
+            System.out.println("Exception in Performances.getAll: " + e);
         }
         finally {
             if (session != null && session.isOpen()) {

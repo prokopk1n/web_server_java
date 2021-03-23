@@ -3,12 +3,12 @@ package DAO.BaseDAO;
 import org.hibernate.Session;
 import util.HibernateSessionFactoryUtil;
 
-import java.sql.SQLException;
+import java.util.List;
 
-public class baseDAOImpl<T> implements baseDAO<T> {
+public abstract class baseDAOImpl<T> implements baseDAO<T> {
 
     @Override
-    public void save(T object) throws SQLException {
+    public void save(T object){
         Session session = null;
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
@@ -25,7 +25,7 @@ public class baseDAOImpl<T> implements baseDAO<T> {
     }
 
     @Override
-    public void update(T object) throws SQLException {
+    public void update(T object){
         Session session = null;
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
@@ -42,7 +42,7 @@ public class baseDAOImpl<T> implements baseDAO<T> {
     }
 
     @Override
-    public void delete(T object) throws SQLException {
+    public void delete(T object){
         Session session = null;
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
@@ -57,5 +57,11 @@ public class baseDAOImpl<T> implements baseDAO<T> {
             }
         }
     }
+
+    @Override
+    public abstract T getObjectById(Long objectId);
+
+    @Override
+    public abstract List<T> getAll();
 
 }

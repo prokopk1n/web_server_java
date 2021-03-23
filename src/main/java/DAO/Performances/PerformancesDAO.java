@@ -1,11 +1,7 @@
 package DAO.Performances;
 
+import DAO.BaseDAO.baseDAO;
 import entity.Performances.Performances;
 
-import java.sql.SQLException;
-import java.util.List;
-
-interface PerformancesDAO {
-    Performances getObjectById(Long objectId) throws SQLException;
-    List<Performances> getAll() throws SQLException;
+public interface PerformancesDAO extends baseDAO<Performances> {
 }

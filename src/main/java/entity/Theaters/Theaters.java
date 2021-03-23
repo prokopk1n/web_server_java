@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="entity.Theaters", schema = "public")
+@Table(name="Theaters", schema = "public")
 public class Theaters {
     public long getTheater_id() {
         return theater_id;
@@ -49,7 +49,6 @@ public class Theaters {
         this.phone = phone;
     }
 
-
     public String getPhoto() {
         return photo;
     }
@@ -84,8 +83,7 @@ public class Theaters {
 
     @Id
     @Column(name="theater_id")
-    @SequenceGenerator(name = "theater_seq", sequenceName = "theaters_theater_id_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "theater_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long theater_id;
 
     @Column(name="name")
@@ -107,7 +105,7 @@ public class Theaters {
     private String map;
 
     @OneToMany(mappedBy = "theaters", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Performances> perf;
+    private List<Performances> perfomances;
 
     @OneToMany(mappedBy = "theaters", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Concert_halls> concert_halls;

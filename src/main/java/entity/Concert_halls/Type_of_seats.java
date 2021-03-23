@@ -7,8 +7,7 @@ import java.util.List;
 @Table(name="Type_of_seats", schema = "public")
 public class Type_of_seats {
     @Id
-    @SequenceGenerator(name = "type_of_seats_seq", sequenceName = "type_of_seats_type_id_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "type_of_seats_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long type_id;
 
     private String name;

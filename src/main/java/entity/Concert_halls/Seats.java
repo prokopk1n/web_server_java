@@ -78,8 +78,7 @@ public class Seats {
     }
 
     @Id
-    @SequenceGenerator(name = "seats_seq", sequenceName = "seats_seat_id_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "seats_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long seat_id;
 
     private int section;

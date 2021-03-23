@@ -6,14 +6,13 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import util.HibernateSessionFactoryUtil;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PerformancesDAOImpl extends baseDAOImpl<Performances> implements PerformancesDAO {
 
     @Override
-    public Performances getObjectById(Long objectId) throws SQLException {
+    public Performances getObjectById(Long objectId){
         Session session = null;
         Performances object = null;
         try {
@@ -30,7 +29,7 @@ public class PerformancesDAOImpl extends baseDAOImpl<Performances> implements Pe
     }
 
     @Override
-    public List<Performances> getAll() throws SQLException {
+    public List<Performances> getAll(){
         Session session = null;
         List<Performances> performances = new ArrayList<Performances>();
         try {

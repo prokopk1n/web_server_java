@@ -6,14 +6,13 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import util.HibernateSessionFactoryUtil;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Type_of_seatsDAOImpl extends baseDAOImpl<Type_of_seats> implements Type_of_seatsDAO {
 
     @Override
-    public Type_of_seats getObjectById(Long objectId) throws SQLException {
+    public Type_of_seats getObjectById(Long objectId){
         Session session = null;
         Type_of_seats object = null;
         try {
@@ -30,7 +29,7 @@ public class Type_of_seatsDAOImpl extends baseDAOImpl<Type_of_seats> implements 
     }
 
     @Override
-    public List<Type_of_seats> getAll() throws SQLException {
+    public List<Type_of_seats> getAll(){
         Session session = null;
         List<Type_of_seats> type_of_seats= new ArrayList<Type_of_seats>();
         try {

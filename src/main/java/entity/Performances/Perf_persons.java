@@ -43,8 +43,8 @@ public class Perf_persons {
     }
 
     @Id
-    @SequenceGenerator(name = "perf_persons_seq", sequenceName = "perf_persons_person_id_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "perf_persons_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "person_id")
     private long person_id;
 
     @ManyToOne(fetch = FetchType.LAZY)

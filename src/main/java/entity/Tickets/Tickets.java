@@ -5,11 +5,10 @@ import entity.Concert_halls.Seats;
 import javax.persistence.*;
 
 @Entity
-@Table(name="entity.Tickets", schema="public")
+@Table(name="Tickets", schema="public")
 public class Tickets {
     @Id
-    @SequenceGenerator(name = "tickets_seq", sequenceName = "tickets_ticket_id_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "tickets_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ticket_id;
 
     @ManyToOne(fetch = FetchType.LAZY)

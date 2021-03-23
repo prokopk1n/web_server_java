@@ -6,13 +6,12 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import util.HibernateSessionFactoryUtil;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ScheduleDAOImpl extends baseDAOImpl<Schedule> implements ScheduleDAO {
     @Override
-    public Schedule getObjectById(Long objectId) throws SQLException {
+    public Schedule getObjectById(Long objectId){
         Session session = null;
         Schedule object = null;
         try {
@@ -29,7 +28,7 @@ public class ScheduleDAOImpl extends baseDAOImpl<Schedule> implements ScheduleDA
     }
 
     @Override
-    public List<Schedule> getAll() throws SQLException {
+    public List<Schedule> getAll(){
         Session session = null;
         List<Schedule> schedule= new ArrayList<Schedule>();
         try {

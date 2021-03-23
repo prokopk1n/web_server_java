@@ -50,8 +50,8 @@ public class People {
     }
 
     @Id
-    @SequenceGenerator(name = "people_seq", sequenceName = "people_people_id_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "people_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "people_id")
     private long people_id;
 
     @Column(name="name")

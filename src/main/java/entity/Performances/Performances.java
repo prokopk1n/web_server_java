@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.List;
 
 @Entity
-@Table(name="entity.Performances", schema = "public")
+@Table(name="Performances", schema = "public")
 public class Performances {
 
     public String getName() {
@@ -69,11 +69,11 @@ public class Performances {
     }
 
     public Theaters getTheater() {
-        return theater;
+        return theaters;
     }
 
     public void setTheater(Theaters theater) {
-        this.theater = theater;
+        this.theaters = theater;
     }
 
     public List<Perf_persons> getPerf_persons() {
@@ -89,13 +89,12 @@ public class Performances {
 
 
     @Id
-    @SequenceGenerator(name = "performances_seq", sequenceName = "performances_performance_id_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "performances_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long performance_id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "theater_id")
-    private Theaters theater;
+    private Theaters theaters;
 
     @Column(name = "name")
     private String name;
