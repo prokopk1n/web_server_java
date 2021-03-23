@@ -68,6 +68,22 @@ public class Theaters {
     public Theaters() {
     }
 
+    public List<Performances> getPerfomances() {
+        return perfomances;
+    }
+
+    public void setPerfomances(List<Performances> perfomances) {
+        this.perfomances = perfomances;
+    }
+
+    public List<Concert_halls> getConcert_halls() {
+        return concert_halls;
+    }
+
+    public void setConcert_halls(List<Concert_halls> concert_halls) {
+        this.concert_halls = concert_halls;
+    }
+
     @Override
     public String toString() {
         return "entity.Theaters.entity.Theaters{" +
