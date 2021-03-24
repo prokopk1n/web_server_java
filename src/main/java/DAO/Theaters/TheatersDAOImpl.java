@@ -58,7 +58,7 @@ public class TheatersDAOImpl extends baseDAOImpl<Theaters> implements TheatersDA
         Session session = null;
         List<Theaters> theaters = null;
         try{
-            session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
+            session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             session.beginTransaction();
             Query<Theaters> query = session.createQuery("FROM Theaters WHERE name LIKE :name", Theaters.class);
             query.setParameter("name", name);
