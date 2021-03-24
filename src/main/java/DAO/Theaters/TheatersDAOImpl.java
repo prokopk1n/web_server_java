@@ -17,7 +17,7 @@ public class TheatersDAOImpl extends baseDAOImpl<Theaters> implements TheatersDA
         Theaters object = null;
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            object = (Theaters) session.load(Theaters.class, objectId);
+            object = (Theaters) session.get(Theaters.class, objectId);
         } catch (Exception e) {
             System.out.println("Exception in Theaters.getById: " + e);
         } finally {
@@ -33,14 +33,17 @@ public class TheatersDAOImpl extends baseDAOImpl<Theaters> implements TheatersDA
         Session session = null;
         List<Theaters> theaters = new ArrayList<Theaters>();
         try {
-            session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
+            session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query<Theaters> query = session.createQuery("SELECT t FROM Theaters t", Theaters.class);
+            System.out.println("1");
+            Query<Theaters> query = session.createQuery("FROM Theaters", Theaters.class);
+            System.out.println("1");
             theaters = (List<Theaters>) query.list();
+            System.out.println("1");
             session.getTransaction().commit();
 
         } catch (Exception e) {
-            System.out.println("Exception in Theaters.getQuery: " + e);
+            System.out.println("Exception in Theaters.getAll: " + e);
         }
         finally {
             if (session != null && session.isOpen()) {
