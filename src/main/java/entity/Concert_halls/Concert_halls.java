@@ -5,6 +5,7 @@ import entity.Tickets.Schedule;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "Concert_halls", schema = "public")
@@ -58,10 +59,32 @@ public class Concert_halls {
         this.schedule = schedule;
     }
 
-    public Concert_halls(long hall_id, String name, String scheme) {
-        this.hall_id = hall_id;
+    public Concert_halls(String name, String scheme, Theaters theaters) {
         this.name = name;
         this.scheme = scheme;
+        this.theaters = theaters;
+    }
+
+    public Concert_halls(){
+    }
+
+    public boolean myEquals(Concert_halls that) {
+        return that != null && hall_id == that.getHall_id() && name.equals(that.getName()) && scheme.equals(that.getScheme())
+                && theaters.myEquals(that.getTheaters());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Concert_halls that = (Concert_halls) o;
+        return hall_id == that.getHall_id() && name.equals(that.getName()) && scheme.equals(that.getScheme())
+                && theaters.equals(that.getTheaters());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hall_id, name, scheme, theaters, seats, schedule);
     }
 
     @Id

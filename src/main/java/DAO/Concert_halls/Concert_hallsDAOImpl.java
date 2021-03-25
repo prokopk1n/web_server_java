@@ -1,7 +1,7 @@
-package DAO.Performances;
+package DAO.Concert_halls;
 
 import DAO.BaseDAO.baseDAOImpl;
-import entity.Performances.Performances;
+import entity.Concert_halls.Concert_halls;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import util.HibernateSessionFactoryUtil;
@@ -9,15 +9,14 @@ import util.HibernateSessionFactoryUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PerformancesDAOImpl extends baseDAOImpl<Performances> implements PerformancesDAO {
-
+public class Concert_hallsDAOImpl extends baseDAOImpl<Concert_halls> implements Concert_hallsDAO {
     @Override
-    public Performances getObjectById(Long objectId){
+    public Concert_halls getObjectById(Long objectId){
         Session session = null;
-        Performances object = null;
+        Concert_halls object = null;
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            object = (Performances) session.get(Performances.class, objectId);
+            object = (Concert_halls) session.get(Concert_halls.class, objectId);
         } catch (Exception e) {
             System.out.println("Exception in Performances.getById: " + e);
         } finally {
@@ -29,14 +28,14 @@ public class PerformancesDAOImpl extends baseDAOImpl<Performances> implements Pe
     }
 
     @Override
-    public List<Performances> getAll(){
+    public List<Concert_halls> getAll(){
         Session session = null;
-        List<Performances> performances = new ArrayList<Performances>();
+        List<Concert_halls> concert_halls= new ArrayList<Concert_halls>();
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query<Performances> query = session.createQuery("FROM Performances", Performances.class);
-            performances = (List<Performances>) query.list();
+            Query<Concert_halls> query = session.createQuery("FROM Concert_halls", Concert_halls.class);
+            concert_halls= (List<Concert_halls>) query.list();
             session.getTransaction().commit();
 
         } catch (Exception e) {
@@ -47,7 +46,6 @@ public class PerformancesDAOImpl extends baseDAOImpl<Performances> implements Pe
                 session.close();
             }
         }
-        return performances;
+        return concert_halls;
     }
-
 }

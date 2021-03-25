@@ -5,12 +5,18 @@ import entity.Performances.Performances;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name="Schedule", schema = "public")
 public class Schedule {
+    @Override
+    public int hashCode() {
+        return Objects.hash(event_id, concert_halls, performances, tickets, date);
+    }
+
     public long getEvent_id() {
         return event_id;
     }
@@ -19,17 +25,16 @@ public class Schedule {
         this.event_id = event_id;
     }
 
-
-    public Timestamp getDate() {
-        return date;
-    }
-
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public Concert_halls getConcert_halls() {
+        return concert_halls;
     }
 
     public void setConcert_halls(Concert_halls concert_halls) {
         this.concert_halls = concert_halls;
+    }
+
+    public Performances getPerformances() {
+        return performances;
     }
 
     public void setPerformances(Performances performances) {
@@ -44,11 +49,20 @@ public class Schedule {
         this.tickets = tickets;
     }
 
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
     public Schedule() {
     }
 
-    public Schedule(long event_id, Timestamp date) {
-        this.event_id = event_id;
+    public Schedule(Concert_halls concert_halls, Performances performances, LocalDateTime date) {
+        this.concert_halls = concert_halls;
+        this.performances = performances;
         this.date = date;
     }
 
@@ -66,14 +80,10 @@ public class Schedule {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null) return false;
         Schedule schedule = (Schedule) o;
-        return event_id == schedule.event_id && Objects.equals(concert_halls, schedule.concert_halls) && Objects.equals(performances, schedule.performances) && Objects.equals(tickets, schedule.tickets) && Objects.equals(date, schedule.date);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(event_id, concert_halls, performances, tickets, date);
+        return event_id == schedule.getEvent_id() && concert_halls.equals(schedule.getConcert_halls())
+                && performances.equals(schedule.getPerformances()) && date.equals(schedule.getDate());
     }
 
     @Id
@@ -86,12 +96,12 @@ public class Schedule {
     private Concert_halls concert_halls;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "perf_id")
+    @JoinColumn(name = "performance_id")
     private Performances performances;
 
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Tickets> tickets;
 
     @Column(name="date")
-    private Timestamp date;
+    private LocalDateTime date;
 }

@@ -16,7 +16,7 @@ public class PeopleDAOImpl extends baseDAOImpl<People> implements PeopleDAO {
         People object = null;
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            object = (People) session.load(People.class, objectId);
+            object = (People) session.get(People.class, objectId);
         } catch (Exception e) {
             System.out.println("Exception in Performances.getById: " + e);
         } finally {
@@ -32,9 +32,9 @@ public class PeopleDAOImpl extends baseDAOImpl<People> implements PeopleDAO {
         Session session = null;
         List<People> people = new ArrayList<People>();
         try {
-            session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
+            session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query<People> query = session.createQuery("SELECT p FROM People p", People.class);
+            Query<People> query = session.createQuery("FROM People", People.class);
             people = (List<People>) query.list();
             session.getTransaction().commit();
 

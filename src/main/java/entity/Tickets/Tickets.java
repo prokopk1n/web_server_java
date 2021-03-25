@@ -51,8 +51,9 @@ public class Tickets {
     public Tickets() {
     }
 
-    public Tickets(long ticket_id, float cost, boolean in_stock) {
-        this.ticket_id = ticket_id;
+    public Tickets(Schedule schedule, Seats seats, float cost, boolean in_stock) {
+        this.schedule = schedule;
+        this.seats = seats;
         this.cost = cost;
         this.in_stock = in_stock;
     }
@@ -71,9 +72,10 @@ public class Tickets {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null) return false;
         Tickets tickets = (Tickets) o;
-        return ticket_id == tickets.ticket_id && Float.compare(tickets.cost, cost) == 0 && in_stock == tickets.in_stock && Objects.equals(schedule, tickets.schedule) && Objects.equals(seats, tickets.seats);
+        return ticket_id == tickets.getTicket_id() && Float.compare(tickets.getCost(), cost) == 0
+                && in_stock == tickets.isIn_stock() && schedule.equals(tickets.getSchedule()) && seats.equals(tickets.getSeats());
     }
 
     @Override

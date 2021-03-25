@@ -2,6 +2,7 @@ package entity.Performances;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name="People", schema="public")
@@ -49,11 +50,29 @@ public class People {
     public People() {
     }
 
-    public People(long people_id, String name, String description, String photo) {
-        this.people_id = people_id;
+    public People(String name, String description, String photo) {
         this.name = name;
         this.description = description;
         this.photo = photo;
+    }
+
+    public boolean myEquals(People that){
+        return that!=null && people_id==that.getPeople_id() && name.equals(that.getName())
+                && description.equals(that.getDescription()) && photo.equals(that.getPhoto());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        People that = (People) o;
+        return that!=null && people_id==that.getPeople_id() && name.equals(that.getName())
+                && description.equals(that.getDescription()) && photo.equals(that.getPhoto());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(people_id, name, description, photo, perf_persons);
     }
 
     @Id
@@ -69,7 +88,6 @@ public class People {
 
     @Column(name="photo")
     private String photo;
-
 
     @OneToMany(mappedBy = "people", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Perf_persons> perf_persons;

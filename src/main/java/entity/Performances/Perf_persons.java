@@ -1,6 +1,7 @@
 package entity.Performances;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name="Perf_persons", schema = "public")
@@ -42,9 +43,29 @@ public class Perf_persons {
     public Perf_persons() {
     }
 
-    public Perf_persons(long person_id, String role) {
-        this.person_id = person_id;
+    public Perf_persons(String role, Performances performances, People people) {
         this.role = role;
+        this.performances = performances;
+        this.people = people;
+    }
+
+    public boolean myEquals(Perf_persons that){
+        return that!=null && person_id==that.getPerson_id() && role.equals(that.getRole())
+                && performances.myEquals(that.getPerformances()) && people.myEquals(that.getPeople());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Perf_persons that = (Perf_persons) o;
+        return that!=null && person_id==that.getPerson_id() && role.equals(that.getRole())
+                && performances.equals(that.getPerformances()) && people.equals(that.getPeople());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(person_id, performances, people, role);
     }
 
     @Id

@@ -4,6 +4,7 @@ import entity.Tickets.Tickets;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity
@@ -42,19 +43,19 @@ public class Seats {
         this.tickets = tickets;
     }
 
-    public int getSection() {
+    public Integer getSection() {
         return section;
     }
 
-    public void setSection(int section) {
+    public void setSection(Integer section) {
         this.section = section;
     }
 
-    public char getSide() {
+    public Character getSide() {
         return side;
     }
 
-    public void setSide(char side) {
+    public void setSide(Character side) {
         this.side = side;
     }
 
@@ -77,20 +78,43 @@ public class Seats {
     public Seats() {
     }
 
-    public Seats(long seat_id, int section, char side, int row, int seat) {
-        this.seat_id = seat_id;
+    public Seats(Integer section, Character side, int row, int seat, Concert_halls concert_halls, Type_of_seats type_of_seats) {
         this.section = section;
         this.side = side;
         this.row = row;
         this.seat = seat;
+        this.type_of_seats = type_of_seats;
+        this.concert_halls = concert_halls;
+    }
+
+    public boolean myEquals(Seats that){
+        return that!=null && seat_id==that.getSeat_id() && section==that.getSection() && side == that.getSide()
+                && row == that.getRow() && seat == that.getSeat() && concert_halls.myEquals(that.getConcert_halls()) && type_of_seats.myEquals(that.getType_of_seats());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Seats that = (Seats) o;
+        System.out.println(concert_halls.equals(that.getConcert_halls()));
+        System.out.println(type_of_seats.equals(that.getType_of_seats()));
+        return seat_id==that.getSeat_id() && (section==null && that.getSection()==null || section!=null && section.equals(that.getSection()))
+                && (side==null && that.getSide()==null || side!=null && side.equals(that.getSide()))
+                && row == that.getRow() && seat == that.getSeat() && concert_halls.equals(that.getConcert_halls()) && type_of_seats.equals(that.getType_of_seats());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(seat_id, section, side, row, seat, concert_halls, type_of_seats, tickets);
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long seat_id;
 
-    private int section;
-    private char side;
+    private Integer section;
+    private Character side;
     private int row;
     private int seat;
 

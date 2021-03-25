@@ -5,6 +5,8 @@ import entity.Tickets.Schedule;
 
 import javax.persistence.*;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,27 +22,27 @@ public class Performances {
         this.name = name;
     }
 
-    public Time getDuration() {
+    public LocalTime getDuration() {
         return duration;
     }
 
-    public void setDuration(Time duration) {
+    public void setDuration(LocalTime duration) {
         this.duration = duration;
     }
 
-    public Date getStart() {
+    public LocalDate getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(LocalDate start) {
         this.start = start;
     }
 
-    public Date getFinish() {
+    public LocalDate getFinish() {
         return finish;
     }
 
-    public void setFinish(Date finish) {
+    public void setFinish(LocalDate finish) {
         this.finish = finish;
     }
 
@@ -88,27 +90,48 @@ public class Performances {
     public Performances() {
     }
 
-    public Performances(long performance_id, String name, Time duration, Date start, Date finish, String description, String poster) {
-        this.performance_id = performance_id;
+    public Performances(String name, LocalTime duration, LocalDate start, LocalDate finish, String description, String poster, Theaters theaters) {
         this.name = name;
         this.duration = duration;
         this.start = start;
         this.finish = finish;
         this.description = description;
         this.poster = poster;
+        this.theaters = theaters;
+    }
+
+    public boolean myEquals(Performances that) {
+        return that!=null && performance_id == that.getPerformance_id() && name.equals(that.getName()) && duration.equals(that.getDuration())
+                && start.equals(that.getStart()) && finish.equals(that.getFinish()) && description.equals(that.getDescription())
+                && poster.equals(that.getPoster()) && theaters.myEquals(that.getTheater());
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null) return false;
         Performances that = (Performances) o;
-        return performance_id == that.performance_id && Objects.equals(theaters, that.theaters) && Objects.equals(name, that.name) && Objects.equals(duration, that.duration) && Objects.equals(start, that.start) && Objects.equals(finish, that.finish) && Objects.equals(description, that.description) && Objects.equals(poster, that.poster) && Objects.equals(perf_persons, that.perf_persons) && Objects.equals(schedule, that.schedule);
+        return performance_id == that.getPerformance_id() && name.equals(that.getName()) && duration.equals(that.getDuration())
+                && start.equals(that.getStart()) && finish.equals(that.getFinish()) && description.equals(that.getDescription())
+                && poster.equals(that.getPoster()) && theaters.equals(that.getTheater());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(performance_id, theaters, name, duration, start, finish, description, poster, perf_persons, schedule);
+    }
+
+    @Override
+    public String toString() {
+        return "Performances{" +
+                "performance_id=" + performance_id +
+                ", name='" + name + '\'' +
+                ", duration=" + duration +
+                ", start=" + start +
+                ", finish=" + finish +
+                ", description='" + description + '\'' +
+                ", poster='" + poster + '\'' +
+                '}';
     }
 
     @Id
@@ -123,13 +146,13 @@ public class Performances {
     private String name;
 
     @Column(name = "duration")
-    private Time duration;
+    private LocalTime duration;
 
     @Column(name="start")
-    private Date start;
+    private LocalDate start;
 
     @Column(name="finish")
-    private Date finish;
+    private LocalDate finish;
 
     @Column(name="description")
     private String description;

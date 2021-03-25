@@ -16,7 +16,7 @@ public class Perf_personsDAOImpl extends baseDAOImpl<Perf_persons> implements Pe
         Perf_persons object = null;
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            object = (Perf_persons) session.load(Perf_persons.class, objectId);
+            object = (Perf_persons) session.get(Perf_persons.class, objectId);
         } catch (Exception e) {
             System.out.println("Exception in Performances.getById: " + e);
         } finally {
@@ -32,9 +32,9 @@ public class Perf_personsDAOImpl extends baseDAOImpl<Perf_persons> implements Pe
         Session session = null;
         List<Perf_persons> perf_persons= new ArrayList<Perf_persons>();
         try {
-            session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
+            session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query<Perf_persons> query = session.createQuery("SELECT p FROM Perf_persons p", Perf_persons.class);
+            Query<Perf_persons> query = session.createQuery("FROM Perf_persons", Perf_persons.class);
             perf_persons = (List<Perf_persons>) query.list();
             session.getTransaction().commit();
 

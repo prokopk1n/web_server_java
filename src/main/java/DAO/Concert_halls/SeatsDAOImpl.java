@@ -16,7 +16,7 @@ public class SeatsDAOImpl extends baseDAOImpl<Seats> implements SeatsDAO {
         Seats object = null;
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            object = (Seats) session.load(Seats.class, objectId);
+            object = (Seats) session.get(Seats.class, objectId);
         } catch (Exception e) {
             System.out.println("Exception in Performances.getById: " + e);
         } finally {
@@ -32,9 +32,9 @@ public class SeatsDAOImpl extends baseDAOImpl<Seats> implements SeatsDAO {
         Session session = null;
         List<Seats> seats= new ArrayList<Seats>();
         try {
-            session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
+            session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query<Seats> query = session.createQuery("SELECT c FROM Seats c", Seats.class);
+            Query<Seats> query = session.createQuery("FROM Seats", Seats.class);
             seats= (List<Seats>) query.list();
             session.getTransaction().commit();
 

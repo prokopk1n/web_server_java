@@ -16,7 +16,7 @@ public class ScheduleDAOImpl extends baseDAOImpl<Schedule> implements ScheduleDA
         Schedule object = null;
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            object = (Schedule) session.load(Schedule.class, objectId);
+            object = (Schedule) session.get(Schedule.class, objectId);
         } catch (Exception e) {
             System.out.println("Exception in Performances.getById: " + e);
         } finally {
@@ -32,7 +32,7 @@ public class ScheduleDAOImpl extends baseDAOImpl<Schedule> implements ScheduleDA
         Session session = null;
         List<Schedule> schedule= new ArrayList<Schedule>();
         try {
-            session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
+            session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             session.beginTransaction();
             Query<Schedule> query = session.createQuery("SELECT s FROM Schedule s", Schedule.class);
             schedule = (List<Schedule>) query.list();

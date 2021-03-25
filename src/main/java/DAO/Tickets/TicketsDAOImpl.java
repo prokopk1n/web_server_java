@@ -16,7 +16,7 @@ public class TicketsDAOImpl extends baseDAOImpl<Tickets> implements TicketsDAO{
         Tickets object = null;
         try {
             session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            object = (Tickets) session.load(Tickets.class, objectId);
+            object = (Tickets) session.get(Tickets.class, objectId);
         } catch (Exception e) {
             System.out.println("Exception in Performances.getById: " + e);
         } finally {
@@ -32,9 +32,9 @@ public class TicketsDAOImpl extends baseDAOImpl<Tickets> implements TicketsDAO{
         Session session = null;
         List<Tickets> tickets = new ArrayList<Tickets>();
         try {
-            session = HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
+            session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query<Tickets> query = session.createQuery("SELECT t FROM Tickets t", Tickets.class);
+            Query<Tickets> query = session.createQuery("FROM Tickets", Tickets.class);
             tickets = (List<Tickets>) query.list();
             session.getTransaction().commit();
 

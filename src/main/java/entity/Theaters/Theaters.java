@@ -1,5 +1,6 @@
 package entity.Theaters;
 
+import com.sun.istack.Nullable;
 import entity.Concert_halls.Concert_halls;
 import entity.Performances.Performances;
 
@@ -66,15 +67,20 @@ public class Theaters {
         this.map = map;
     }
 
+    public String myName(Theaters theater)
+    {
+        return name+theater.getName();
+    }
+
     public Theaters() {
     }
 
-    public List<Performances> getPerfomances() {
-        return perfomances;
+    public List<Performances> getPerformances() {
+        return performances;
     }
 
-    public void setPerfomances(List<Performances> perfomances) {
-        this.perfomances = perfomances;
+    public void setPerformances(List<Performances> perfomances) {
+        this.performances = perfomances;
     }
 
     public List<Concert_halls> getConcert_halls() {
@@ -107,16 +113,28 @@ public class Theaters {
         this.map = map;
     }
 
-    public boolean equals(Theaters theaters) {
-        return theater_id == theaters.getTheater_id() && name.equals(theaters.getName())
-                && email.equals(theaters.getEmail()) && address.equals(theaters.getAddress())
-                && phone.equals(theaters.getPhone()) && photo.equals(theaters.getPhoto())
-                && map.equals(theaters.getMap());
+    public boolean myEquals(Theaters theaters){
+        System.out.println("I AM HERE!!!");
+        return theaters!=null && this.getTheater_id()== theaters.getTheater_id() && this.getName().equals(theaters.getName())
+                && this.getEmail().equals(theaters.getEmail()) && this.getAddress().equals(theaters.getAddress())
+                && this.getPhone().equals(theaters.getPhone()) && this.getPhoto().equals(theaters.getPhoto())
+                && this.getMap().equals(theaters.getMap());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Theaters theaters = (Theaters) o;
+        return this.getTheater_id() == theaters.getTheater_id() && this.getName().equals(theaters.getName())
+                && this.getEmail().equals(theaters.getEmail()) && this.getAddress().equals(theaters.getAddress())
+                && this.getPhone().equals(theaters.getPhone()) && this.getPhoto().equals(theaters.getPhoto())
+                && this.getMap().equals(theaters.getMap());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(theater_id, name, email, address, phone, photo, map, perfomances, concert_halls);
+        return Objects.hash(theater_id, name, email, address, phone, photo, map, performances, concert_halls);
     }
 
     @Id
@@ -143,7 +161,7 @@ public class Theaters {
     private String map;
 
     @OneToMany(mappedBy = "theaters", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Performances> perfomances;
+    private List<Performances> performances;
 
     @OneToMany(mappedBy = "theaters", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Concert_halls> concert_halls;

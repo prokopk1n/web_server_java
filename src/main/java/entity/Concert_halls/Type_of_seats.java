@@ -2,6 +2,7 @@ package entity.Concert_halls;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name="Type_of_seats", schema = "public")
@@ -34,9 +35,25 @@ public class Type_of_seats {
     public Type_of_seats() {
     }
 
-    public Type_of_seats(long type_id, String name) {
-        this.type_id = type_id;
+    public Type_of_seats(String name) {
         this.name = name;
+    }
+
+    public boolean myEquals(Type_of_seats that){
+        return that!=null && type_id == that.getType_id() && name.equals(that.getName());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Type_of_seats that = (Type_of_seats) o;
+        return type_id == that.getType_id() && name.equals(that.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type_id, name, seats);
     }
 
     @Id
