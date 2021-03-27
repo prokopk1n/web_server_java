@@ -1,3 +1,11 @@
+# Ant commands
+    ant run -> build and launch aplication
+    ant build -> build application
+    ant tests -> build and launching tests
+    ant dbcreate -> create db and user appadmin
+    ant dbinsert -> fill db
+
+
 # Схема Базы данных
 ![alt text](pictures/DB_scheme.jpg) 
 
