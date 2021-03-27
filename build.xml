@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="app">
+    <property name = "dir.src"     value="./src/main/java"/>
+    <property name = "dir.test.src" value="./src/test"/>
+    <property name = "dir.build"   value="./build"/>
+    <property name = "dir.classes" value="${dir.build}/classes"/>
+
+    <path id="lib.path">
+        <fileset dir="lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="build">
+        <echo>BUILDING...</echo>
+        <mkdir dir="${dir.build}"/>
+        <javac classpathref="lib.path" srcdir="${dir.src}" destdir="${dir.build}"/>
+    </target>
+
+    <target name="testsbuild" depends="build">
+        <echo>BUILDING TESTS...</echo>
+        <mkdir dir="${dir.build}"/>
+        <javac srcdir = "${dir.test.src}" classpathref="lib.path" classpath="${dir.build}" destdir="${dir.build}">
+            <compilerarg value="-Xlint:deprecation"/>
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>
+
+    <target name = "clean">
+        <delete dir="${dir.build}"/>
+    </target>
+
+    <target name= "run" depends="build">
+        <java classname="Main" classpath="${dir.build}" classpathref="lib.path">
+            <classpath>
+                <pathelement path="src/main/resources"/>
+            </classpath>
+        </java>
+    </target>
+
+    <taskdef name="testng" classname="org.testng.TestNGAntTask" classpath="lib/testng-6.8.jar" />
+
+
+    <target name = "tests" depends = "testsbuild">
+        <fileset id="testsfileset" dir="${dir.build}">
+            <include name="*"/>
+            <exclude name="Main.class"/>
+        </fileset>
+
+        <testng classfilesetref="testsfileset">
+            <classpath location="${dir.build}"/>
+            <classpath>
+                <fileset dir="lib" includes="*.jar"/>
+                <fileset dir="${dir.build}" includes="*"/>
+                <pathelement path="src/main/resources"/>
+            </classpath>
+            <xmlfileset dir="." includes="testng.xml"/>
+        </testng>
+    </target>
+</project>
