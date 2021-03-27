@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/home/sergei/IdeaProjects/app">
+    <classes>
+        <class name="Concert_halls.Concert_hallsTEST"><methods><include name="getAll"/><include name="getById"/><include name="add"/><include name="delete"/><include name="update"/></methods></class>
+        <class name="Concert_halls.SeatsTEST"><methods><include name="getAll"/><include name="getById"/><include name="add"/><include name="delete"/><include name="update"/></methods></class>
+        <class name="Concert_halls.Type_of_seatsTEST"><methods><include name="getAll"/><include name="getById"/><include name="add"/><include name="delete"/><include name="update"/></methods></class>
+        <class name="Performances.PeopleTEST"><methods><include name="getAll"/><include name="getById"/><include name="add"/><include name="delete"/><include name="update"/></methods></class>
+        <class name="Performances.Perf_personsTEST"><methods><include name="getAll"/><include name="getById"/><include name="add"/><include name="delete"/><include name="update"/></methods></class>
+        <class name="Performances.PerformancesTEST"><methods><include name="getAll"/><include name="getById"/><include name="add"/><include name="delete"/><include name="update"/></methods></class>
+        <class name="Theaters.TheatersTest"><methods><include name="getAll"/><include name="getTheaterById"/><include name="addTheater"/><include name="deleteTheater"/><include name="updateTheater"/><include name="getTheaterByName"/></methods></class>
+        <class name="Tickets.ScheduleTEST"><methods><include name="getAll"/><include name="getById"/><include name="add"/><include name="delete"/><include name="update"/></methods></class>
+        <class name="Tickets.TicketsTEST"><methods><include name="getAll"/><include name="getById"/><include name="add"/><include name="delete"/><include name="update"/></methods></class>
+    </classes>
+    </test>
+</suite>
