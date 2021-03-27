@@ -9,13 +9,14 @@ import entity.Theaters.Theaters;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 
 public class PerformancesTEST {
     @Test
-    public void getAll() {
+    public void getAll() throws SQLException{
         boolean resultId1 = false;
         boolean resultId2 = false;
         PerformancesDAO objectDAO = new PerformancesDAOImpl();
@@ -40,18 +41,19 @@ public class PerformancesTEST {
                 break;
             }
         }
-        Assert.assertTrue(resultId1 && resultId2);
+        Assert.assertTrue(resultId1);
+        Assert.assertTrue(resultId2);
     }
 
-    @Test
-    public void getById() {
+    @Test(dependsOnMethods={"getAll"})
+    public void getById() throws SQLException{
         PerformancesDAO objectDAO = new PerformancesDAOImpl();
         Performances object = objectDAO.getObjectById((long) 1);
         Assert.assertTrue(object != null && object.getPerformance_id() == 1);
     }
 
-    @Test
-    public void add() {
+    @Test(dependsOnMethods={"getAll"})
+    public void add() throws SQLException{
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         Theaters theaters = theatersDAO.getObjectById((long)1);
         Performances object1 = new Performances("name", LocalTime.of(1,30,0),
@@ -63,8 +65,8 @@ public class PerformancesTEST {
         Assert.assertTrue(object1.equals(object2));
     }
 
-    @Test
-    public void delete() {
+    @Test(dependsOnMethods={"getAll"})
+    public void delete() throws SQLException{
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         Theaters theaters = theatersDAO.getObjectById((long)1);
         Performances object1 = new Performances("name", LocalTime.of(1,30,0),
@@ -78,8 +80,8 @@ public class PerformancesTEST {
         Assert.assertTrue(object2 == null);
     }
 
-    @Test
-    public void update() {
+    @Test(dependsOnMethods={"getAll"})
+    public void update() throws SQLException{
         PerformancesDAO objectDAO = new PerformancesDAOImpl();
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         Theaters theaters = theatersDAO.getObjectById((long)1);

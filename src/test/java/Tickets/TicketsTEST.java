@@ -18,11 +18,12 @@ import entity.Tickets.Tickets;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.util.Collection;
 
 public class TicketsTEST {
     @Test
-    public void getAll() {
+    public void getAll() throws SQLException {
         boolean[] result = new boolean[36];
         for (int i = 0; i < 36; i++)
             result[i] = false;
@@ -41,21 +42,20 @@ public class TicketsTEST {
                 break;
             }
         }
-        boolean res=true;
         for (int i=0;i<36;i++)
-            res = res && result[i];
-        Assert.assertTrue(res);
+            Assert.assertTrue(result[i]);
     }
 
-    @Test
-    public void getById() {
+    @Test(dependsOnMethods={"getAll"})
+    public void getById() throws SQLException{
         TicketsDAO objectDAO = new TicketsDAOImpl();
         Tickets object = objectDAO.getObjectById((long) 1);
-        Assert.assertTrue(object != null && object.getTicket_id() == 1);
+        Assert.assertNotNull(object);
+        Assert.assertTrue(object.getTicket_id() == 1);
     }
 
-    @Test
-    public void add() {
+    @Test(dependsOnMethods={"getAll"})
+    public void add() throws SQLException{
         ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
         Schedule schedule = scheduleDAO.getObjectById((long)1);
 
@@ -69,8 +69,8 @@ public class TicketsTEST {
         Assert.assertTrue(object1.equals(object2));
     }
 
-    @Test
-    public void delete() {
+    @Test(dependsOnMethods={"getAll"})
+    public void delete() throws SQLException{
         ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
         Schedule schedule = scheduleDAO.getObjectById((long)1);
 
@@ -87,8 +87,8 @@ public class TicketsTEST {
         Assert.assertTrue(object2 == null);
     }
 
-    @Test
-    public void update() {
+    @Test(dependsOnMethods={"getAll"})
+    public void update() throws SQLException{
         ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
         Schedule schedule = scheduleDAO.getObjectById((long)1);
         SeatsDAO seatsDAO = new SeatsDAOImpl();

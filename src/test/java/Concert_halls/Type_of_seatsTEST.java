@@ -7,11 +7,12 @@ import entity.Concert_halls.Type_of_seats;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.util.Collection;
 
 public class Type_of_seatsTEST {
     @Test
-    public void getAll() {
+    public void getAll() throws SQLException {
         boolean[] result = new boolean[36];
         for (int i = 0; i < 7; i++)
             result[i] = false;
@@ -30,22 +31,19 @@ public class Type_of_seatsTEST {
                 break;
             }
         }
-        boolean res=true;
-        for (int i=0;i<7;i++) {
-            res = res && result[i];
-        }
-        Assert.assertTrue(res);
+        for (int i=0;i<7;i++)
+            Assert.assertTrue(result[i]);
     }
 
-    @Test
-    public void getById() {
+    @Test(dependsOnMethods={"getAll"})
+    public void getById() throws SQLException{
         Type_of_seatsDAO objectDAO = new Type_of_seatsDAOImpl();
         Type_of_seats object = objectDAO.getObjectById((long) 1);
         Assert.assertTrue(object != null && object.getType_id() == 1);
     }
 
-    @Test
-    public void add() {
+    @Test(dependsOnMethods={"getAll"})
+    public void add() throws SQLException{
         Type_of_seatsDAO objectDAO = new Type_of_seatsDAOImpl();
         Type_of_seats object1 = new Type_of_seats("Seat");
         objectDAO.save(object1);
@@ -53,8 +51,8 @@ public class Type_of_seatsTEST {
         Assert.assertTrue(object1.equals(object2));
     }
 
-    @Test
-    public void delete() {
+    @Test(dependsOnMethods={"getAll"})
+    public void delete() throws SQLException{
         Type_of_seatsDAO objectDAO = new Type_of_seatsDAOImpl();
         Type_of_seats object1 = new Type_of_seats("Seat");
 
@@ -65,8 +63,8 @@ public class Type_of_seatsTEST {
         Assert.assertTrue(object2 == null);
     }
 
-    @Test
-    public void update() {
+    @Test(dependsOnMethods={"getAll"})
+    public void update() throws SQLException{
         Type_of_seatsDAO objectDAO = new Type_of_seatsDAOImpl();
         Type_of_seats object = new Type_of_seats("Seat");
 

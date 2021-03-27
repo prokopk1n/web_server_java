@@ -56,11 +56,6 @@ public class People {
         this.photo = photo;
     }
 
-    public boolean myEquals(People that){
-        return that!=null && people_id==that.getPeople_id() && name.equals(that.getName())
-                && description.equals(that.getDescription()) && photo.equals(that.getPhoto());
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

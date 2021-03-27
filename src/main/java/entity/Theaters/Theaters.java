@@ -67,11 +67,6 @@ public class Theaters {
         this.map = map;
     }
 
-    public String myName(Theaters theater)
-    {
-        return name+theater.getName();
-    }
-
     public Theaters() {
     }
 
@@ -111,14 +106,6 @@ public class Theaters {
         this.phone = phone;
         this.photo = photo;
         this.map = map;
-    }
-
-    public boolean myEquals(Theaters theaters){
-        System.out.println("I AM HERE!!!");
-        return theaters!=null && this.getTheater_id()== theaters.getTheater_id() && this.getName().equals(theaters.getName())
-                && this.getEmail().equals(theaters.getEmail()) && this.getAddress().equals(theaters.getAddress())
-                && this.getPhone().equals(theaters.getPhone()) && this.getPhoto().equals(theaters.getPhoto())
-                && this.getMap().equals(theaters.getMap());
     }
 
     @Override

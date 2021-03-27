@@ -39,9 +39,6 @@ public class Type_of_seats {
         this.name = name;
     }
 
-    public boolean myEquals(Type_of_seats that){
-        return that!=null && type_id == that.getType_id() && name.equals(that.getName());
-    }
 
     @Override
     public boolean equals(Object o) {

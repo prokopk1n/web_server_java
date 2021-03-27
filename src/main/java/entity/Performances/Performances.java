@@ -100,12 +100,6 @@ public class Performances {
         this.theaters = theaters;
     }
 
-    public boolean myEquals(Performances that) {
-        return that!=null && performance_id == that.getPerformance_id() && name.equals(that.getName()) && duration.equals(that.getDuration())
-                && start.equals(that.getStart()) && finish.equals(that.getFinish()) && description.equals(that.getDescription())
-                && poster.equals(that.getPoster()) && theaters.myEquals(that.getTheater());
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

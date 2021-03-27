@@ -6,17 +6,17 @@ import entity.Theaters.Theaters;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.util.Collection;
 
 public class TheatersTest {
     @Test
-    public void getAll() {
+    public void getAll() throws SQLException {
         boolean resultId1 = false;
         boolean resultId2 = false;
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         Collection<Theaters> theaters = theatersDAO.getAll();
         for (Theaters object : theaters) {
-            System.out.println(object.toString());
             if (object.getTheater_id() == 1) {
                 if (!resultId1)
                     resultId1 = true;
@@ -36,18 +36,20 @@ public class TheatersTest {
                 break;
             }
         }
-        Assert.assertTrue(resultId1 && resultId2);
+        Assert.assertTrue(resultId1);
+        Assert.assertTrue(resultId2);
     }
 
-    @Test
-    public void getTheaterById() {
+    @Test(dependsOnMethods={"getAll"})
+    public void getTheaterById() throws SQLException{
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         Theaters theaters = theatersDAO.getObjectById((long) 1);
-        Assert.assertTrue(theaters != null && theaters.getTheater_id() == 1);
+        Assert.assertNotNull(theaters);
+        Assert.assertTrue(theaters.getTheater_id() == 1);
     }
 
-    @Test
-    public void addTheater() {
+    @Test(dependsOnMethods={"getAll"})
+    public void addTheater() throws SQLException{
         Theaters theater1 = new Theaters("name", "email", "address", "phone", "photo", "map");
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         theatersDAO.save(theater1);
@@ -55,8 +57,8 @@ public class TheatersTest {
         Assert.assertTrue(theater1.equals(theater2));
     }
 
-    @Test
-    public void deleteTheater() {
+    @Test(dependsOnMethods={"getAll"})
+    public void deleteTheater() throws SQLException{
         Theaters theater1 = new Theaters("name", "email", "address", "phone", "photo", "map");
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         theatersDAO.save(theater1);
@@ -66,8 +68,8 @@ public class TheatersTest {
         Assert.assertTrue(theater2 == null);
     }
 
-    @Test
-    public void updateTheater() {
+    @Test(dependsOnMethods={"getAll"})
+    public void updateTheater() throws SQLException{
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         Theaters theaters = new Theaters("name", "email", "address", "phone", "photo", "map");
         theatersDAO.save(theaters);
@@ -77,8 +79,8 @@ public class TheatersTest {
         Assert.assertTrue(theatersDAO.getObjectById(id).getName().equals("newName"));
     }
 
-    @Test
-    public void getTheaterByName(){
+    @Test(dependsOnMethods={"getAll"})
+    public void getTheaterByName() throws SQLException{
         Theaters theater1 = new Theaters("testingName", "email", "address", "phone", "photo", "map");
         Theaters theater2 = new Theaters("testingName", "email", "address", "phone", "photo", "map");
         TheatersDAO theatersDAO = new TheatersDAOImpl();

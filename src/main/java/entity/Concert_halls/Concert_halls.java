@@ -68,11 +68,6 @@ public class Concert_halls {
     public Concert_halls(){
     }
 
-    public boolean myEquals(Concert_halls that) {
-        return that != null && hall_id == that.getHall_id() && name.equals(that.getName()) && scheme.equals(that.getScheme())
-                && theaters.myEquals(that.getTheaters());
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

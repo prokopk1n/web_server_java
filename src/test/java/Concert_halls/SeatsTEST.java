@@ -10,18 +10,18 @@ import entity.Theaters.Theaters;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.util.Collection;
 
 public class SeatsTEST {
 
     @Test
-    public void getAll() {
+    public void getAll() throws SQLException {
         boolean[] result = new boolean[36];
         for (int i = 0; i < 36; i++)
             result[i] = false;
         SeatsDAO objectDAO = new SeatsDAOImpl();
         Collection<Seats> objects = objectDAO.getAll();
-        System.out.println(objects.size());
         for (Seats object : objects) {
             if (object.getSeat_id()> 36 || object.getSeat_id()<=0) {
                 result[0] = false;
@@ -36,21 +36,19 @@ public class SeatsTEST {
             }
         }
         boolean res=true;
-        for (int i=0;i<36;i++) {
-            res = res && result[i];
-        }
-        Assert.assertTrue(res);
+        for (int i=0;i<36;i++)
+            Assert.assertTrue(result[i]);
     }
 
-    @Test
-    public void getById() {
+    @Test(dependsOnMethods={"getAll"})
+    public void getById() throws SQLException{
         SeatsDAO objectDAO = new SeatsDAOImpl();
         Seats object = objectDAO.getObjectById((long) 1);
         Assert.assertTrue(object != null && object.getSeat_id() == 1);
     }
 
-    @Test
-    public void add() {
+    @Test(dependsOnMethods={"getAll"})
+    public void add() throws SQLException{
         Concert_hallsDAO concert_hallsDAO = new Concert_hallsDAOImpl();
         Concert_halls concert_halls = concert_hallsDAO.getObjectById((long)1);
 
@@ -64,8 +62,8 @@ public class SeatsTEST {
         Assert.assertTrue(object1.equals(object2));
     }
 
-    @Test
-    public void delete() {
+    @Test(dependsOnMethods={"getAll"})
+    public void delete() throws SQLException{
         Concert_hallsDAO concert_hallsDAO = new Concert_hallsDAOImpl();
         Concert_halls concert_halls = concert_hallsDAO.getObjectById((long)1);
 
@@ -82,8 +80,8 @@ public class SeatsTEST {
         Assert.assertTrue(object2 == null);
     }
 
-    @Test
-    public void update() {
+    @Test(dependsOnMethods={"getAll"})
+    public void update() throws SQLException{
         Concert_hallsDAO concert_hallsDAO = new Concert_hallsDAOImpl();
         Concert_halls concert_halls = concert_hallsDAO.getObjectById((long)1);
 

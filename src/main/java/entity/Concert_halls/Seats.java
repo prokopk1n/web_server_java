@@ -87,18 +87,11 @@ public class Seats {
         this.concert_halls = concert_halls;
     }
 
-    public boolean myEquals(Seats that){
-        return that!=null && seat_id==that.getSeat_id() && section==that.getSection() && side == that.getSide()
-                && row == that.getRow() && seat == that.getSeat() && concert_halls.myEquals(that.getConcert_halls()) && type_of_seats.myEquals(that.getType_of_seats());
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null) return false;
         Seats that = (Seats) o;
-        System.out.println(concert_halls.equals(that.getConcert_halls()));
-        System.out.println(type_of_seats.equals(that.getType_of_seats()));
         return seat_id==that.getSeat_id() && (section==null && that.getSection()==null || section!=null && section.equals(that.getSection()))
                 && (side==null && that.getSide()==null || side!=null && side.equals(that.getSide()))
                 && row == that.getRow() && seat == that.getSeat() && concert_halls.equals(that.getConcert_halls()) && type_of_seats.equals(that.getType_of_seats());

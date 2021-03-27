@@ -9,13 +9,14 @@ import entity.Performances.Performances;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 
 public class PeopleTEST {
     @Test
-    public void getAll() {
+    public void getAll() throws SQLException {
         boolean[] result = {false,false,false,false,false,false,false};
         PeopleDAO objectDAO = new PeopleDAOImpl();
         Collection<People> objects = objectDAO.getAll();
@@ -32,30 +33,28 @@ public class PeopleTEST {
                 break;
             }
         }
-        boolean res=true;
         for (int i=0;i<7;i++)
-            res = res && result[i];
-        Assert.assertTrue(res);
+            Assert.assertTrue(result[i]);
     }
 
-    @Test
-    public void getById() {
+    @Test(dependsOnMethods={"getAll"})
+    public void getById() throws SQLException{
         PeopleDAO objectDAO = new PeopleDAOImpl();
         People object = objectDAO.getObjectById((long) 1);
         Assert.assertTrue(object != null && object.getPeople_id() == 1);
     }
 
-    @Test
-    public void add() {
+    @Test(dependsOnMethods={"getAll"})
+    public void add() throws SQLException{
         People object1 = new People("name","description","photo");
         PeopleDAO objectDAO = new PeopleDAOImpl();
         objectDAO.save(object1);
         People object2= objectDAO.getObjectById(object1.getPeople_id());
-        Assert.assertTrue(object1.myEquals(object2));
+        Assert.assertTrue(object1.equals(object2));
     }
 
-    @Test
-    public void delete() {
+    @Test(dependsOnMethods={"getAll"})
+    public void delete() throws SQLException{
         People object1 = new People("name","description","photo");
         PeopleDAO objectDAO = new PeopleDAOImpl();
         objectDAO.save(object1);
@@ -65,8 +64,8 @@ public class PeopleTEST {
         Assert.assertTrue(object2 == null);
     }
 
-    @Test
-    public void update() {
+    @Test(dependsOnMethods={"getAll"})
+    public void update() throws SQLException{
         PeopleDAO objectDAO = new PeopleDAOImpl();
         People object = new People("name","description","photo");
         objectDAO.save(object);

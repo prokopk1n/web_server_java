@@ -9,11 +9,12 @@ import entity.Theaters.Theaters;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.sql.SQLException;
 import java.util.Collection;
 
 public class Concert_hallsTEST {
     @Test
-    public void getAll() {
+    public void getAll() throws SQLException {
         boolean[] result = {false,false};
         Concert_hallsDAO objectDAO = new Concert_hallsDAOImpl();
         Collection<Concert_halls> objects = objectDAO.getAll();
@@ -32,19 +33,18 @@ public class Concert_hallsTEST {
         }
         boolean res=true;
         for (int i=0;i<2;i++)
-            res = res && result[i];
-        Assert.assertTrue(res);
+            Assert.assertTrue(result[i]);
     }
 
-    @Test
-    public void getById() {
+    @Test(dependsOnMethods={"getAll"})
+    public void getById() throws SQLException{
         Concert_hallsDAO objectDAO = new Concert_hallsDAOImpl();
         Concert_halls object = objectDAO.getObjectById((long) 1);
         Assert.assertTrue(object != null && object.getHall_id() == 1);
     }
 
-    @Test
-    public void add() {
+    @Test(dependsOnMethods={"getAll"})
+    public void add() throws SQLException{
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         Theaters theaters = theatersDAO.getObjectById((long)1);
 
@@ -55,8 +55,8 @@ public class Concert_hallsTEST {
         Assert.assertTrue(object1.equals(object2));
     }
 
-    @Test
-    public void delete() {
+    @Test(dependsOnMethods={"getAll"})
+    public void delete() throws SQLException{
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         Theaters theaters = theatersDAO.getObjectById((long)1);
 
@@ -70,8 +70,8 @@ public class Concert_hallsTEST {
         Assert.assertTrue(object2 == null);
     }
 
-    @Test
-    public void update() {
+    @Test(dependsOnMethods={"getAll"})
+    public void update() throws SQLException{
         TheatersDAO theatersDAO = new TheatersDAOImpl();
         Theaters theaters = theatersDAO.getObjectById((long)1);
 

@@ -6,13 +6,13 @@ import entity.Performances.Perf_persons;
 import entity.Performances.Performances;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sun.misc.Perf;
 
+import java.sql.SQLException;
 import java.util.Collection;
 
 public class Perf_personsTEST {
     @Test
-    public void getAll() {
+    public void getAll() throws SQLException {
         boolean[] result = {false,false,false,false,false,false,false};
         Perf_personsDAO objectDAO = new Perf_personsDAOImpl();
         Collection<Perf_persons> objects = objectDAO.getAll();
@@ -29,21 +29,20 @@ public class Perf_personsTEST {
                 break;
             }
         }
-        boolean res=true;
         for (int i=0;i<7;i++)
-            res = res && result[i];
-        Assert.assertTrue(res);
+            Assert.assertTrue(result[i]);
     }
 
-    @Test
-    public void getById() {
+    @Test(dependsOnMethods={"getAll"})
+    public void getById() throws SQLException{
         Perf_personsDAO objectDAO = new Perf_personsDAOImpl();
         Perf_persons object = objectDAO.getObjectById((long) 1);
-        Assert.assertTrue(object != null && object.getPerson_id() == 1);
+        Assert.assertNotNull(object);
+        Assert.assertTrue(object.getPerson_id() == 1);
     }
 
-    @Test
-    public void add() {
+    @Test(dependsOnMethods={"getAll"})
+    public void add() throws SQLException{
         PeopleDAO peopleDAO = new PeopleDAOImpl();
         People people = peopleDAO.getObjectById((long)1);
 
@@ -54,11 +53,11 @@ public class Perf_personsTEST {
         Perf_personsDAO objectDAO = new Perf_personsDAOImpl();
         objectDAO.save(object1);
         Perf_persons object2= objectDAO.getObjectById(object1.getPerson_id());
-        Assert.assertTrue(object1.myEquals(object2));
+        Assert.assertTrue(object1.equals(object2));
     }
 
-    @Test
-    public void delete() {
+    @Test(dependsOnMethods={"getAll"})
+    public void delete() throws SQLException{
         People object1 = new People("name","description","photo");
         PeopleDAO objectDAO = new PeopleDAOImpl();
         objectDAO.save(object1);
@@ -68,8 +67,8 @@ public class Perf_personsTEST {
         Assert.assertTrue(object2 == null);
     }
 
-    @Test
-    public void update() {
+    @Test(dependsOnMethods={"getAll"})
+    public void update() throws SQLException{
         PeopleDAO objectDAO = new PeopleDAOImpl();
         People object = new People("name","description","photo");
         objectDAO.save(object);

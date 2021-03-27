@@ -49,11 +49,6 @@ public class Perf_persons {
         this.people = people;
     }
 
-    public boolean myEquals(Perf_persons that){
-        return that!=null && person_id==that.getPerson_id() && role.equals(that.getRole())
-                && performances.myEquals(that.getPerformances()) && people.myEquals(that.getPeople());
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
