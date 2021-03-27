@@ -1,0 +1,3 @@
+#!/bin/bash
+psql -d postgres -f app_init.sql
+
