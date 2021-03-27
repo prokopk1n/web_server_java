@@ -4,6 +4,7 @@
     <property name = "dir.test.src" value="./src/test"/>
     <property name = "dir.build"   value="./build"/>
     <property name = "dir.classes" value="${dir.build}/classes"/>
+    <property name = "sql.src" value="./db"/>
 
     <path id="lib.path">
         <fileset dir="lib">
@@ -11,16 +12,21 @@
         </fileset>
     </path>
 
-    <target name="build">
+    <target name="build" depends="clean">
         <echo>BUILDING...</echo>
         <mkdir dir="${dir.build}"/>
-        <javac classpathref="lib.path" srcdir="${dir.src}" destdir="${dir.build}"/>
+        <javac classpathref="lib.path" srcdir="${dir.src}" destdir="${dir.build}"
+               includeantruntime="false"/>
     </target>
 
     <target name="testsbuild" depends="build">
         <echo>BUILDING TESTS...</echo>
-        <mkdir dir="${dir.build}"/>
-        <javac srcdir = "${dir.test.src}" classpathref="lib.path" classpath="${dir.build}" destdir="${dir.build}">
+        <mkdir dir="${dir.build}/test"/>
+        <javac srcdir = "${dir.test.src}"
+               classpathref="lib.path"
+               classpath="${dir.build}"
+               destdir="${dir.build}/test"
+               includeantruntime="false">
             <compilerarg value="-Xlint:deprecation"/>
             <compilerarg value="-Xlint:unchecked"/>
         </javac>
@@ -41,20 +47,28 @@
     <taskdef name="testng" classname="org.testng.TestNGAntTask" classpath="lib/testng-6.8.jar" />
 
 
-    <target name = "tests" depends = "testsbuild">
-        <fileset id="testsfileset" dir="${dir.build}">
-            <include name="*"/>
-            <exclude name="Main.class"/>
-        </fileset>
-
-        <testng classfilesetref="testsfileset">
+    <target name = "tests" depends = "testsbuild, dbinsert">
+        <testng classpathref="lib.path">
             <classpath location="${dir.build}"/>
+            <classpath location="${dir.build}/test"/>
             <classpath>
-                <fileset dir="lib" includes="*.jar"/>
-                <fileset dir="${dir.build}" includes="*"/>
                 <pathelement path="src/main/resources"/>
             </classpath>
             <xmlfileset dir="." includes="testng.xml"/>
         </testng>
+    </target>
+
+    <target name = "dbcreate">
+        <echo>CREATING DB...</echo>
+        <exec executable="/bin/sh" dir="${sql.src}">
+            <arg value="create"/>
+        </exec>
+    </target>
+
+    <target name = "dbinsert" depends="dbcreate">
+        <echo>CREATING DB...</echo>
+        <exec executable="/bin/sh" dir="${sql.src}">
+            <arg value="insert"/>
+        </exec>
     </target>
 </project>
