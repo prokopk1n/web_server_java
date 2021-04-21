@@ -6,8 +6,8 @@
     ant dbinsert -> fill db
 
 
-# Схема Базы данных
-![alt text](pictures/DB_scheme.jpg) 
+# Текущая версия сайта
+![alt text](pictures/Site.png) 
 
 
 # Описание страниц
