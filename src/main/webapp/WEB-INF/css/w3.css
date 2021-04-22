@@ -1,0 +1,137 @@
+body {
+    margin: 0 auto;
+    background: #FCF2E5;
+}
+
+.logo{
+    background: #FCF2E5;
+    padding: 50px 20px; /*величина полей*/
+    text-align: center;
+}
+.logo h1 {
+    font-family: 'Merriweather', serif;
+    position: relative;
+    color: #FCF2E5;
+    background: #90806A;
+    font-size: 2.5em;
+    font-weight: normal;
+    padding: 10px 40px;
+    display: inline-block;
+    margin: 0;
+    line-height: 1;
+}
+.logo h1:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    bottom: -15px;
+    background: #90806A;
+}
+.logo h1:after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 80%;
+    border-top: 10px solid #90806A;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -25px;
+}
+@media (max-width: 500px) {
+    .logo h1 {font-size: 1.8em;}
+}
+@media (max-width: 400px) {
+    .logo h1 {
+        font-size: 1.5em;
+        padding: 10px 30px;
+    }
+}
+
+.main-menu {
+    width: 100%;
+    list-style: none;
+    padding: 0; /*поле*/
+    font-size: 24px; /*размер шрифта*/
+    margin: 0 auto; /*величина отступа*/
+}
+
+.main-menu ul {
+    clear:left;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    left:50%;
+    text-align:center;
+}
+
+.main-menu li{
+    display:block;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    right:50%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+a.menu {
+    text-decoration: none; /*убираем подчеркивание текста ссылок*/
+    background:#deb887; /*добавляем фон к пункту меню*/
+    color:#fff; /*меняем цвет ссылок*/
+    padding:10px; /*добавляем отступ*/
+    font-family: Courier New, monospace; /*меняем шрифт*/
+    border-radius:4px; /*добавляем скругление*/
+    -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+    -o-transition: all 0.3s 0.01s ease;
+    -webkit-transition: all 0.3s 0.01s ease;
+}
+a.menu:hover {
+    background: #9FB4D9;/*добавляем эффект при наведении*/
+}
+
+a {
+    text-decoration: none; /*убираем подчеркивание текста ссылок*/
+    color: #9FB4D9;
+}
+
+a:hover{
+    border-radius:4px;
+    background: #FFF8F0;
+    -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+    -o-transition: all 0.3s 0.01s ease;
+    -webkit-transition: all 0.3s 0.01s ease;
+}
+
+table {
+    font-size: 30px;
+    width: 50%;
+    text-align: center;
+    border-collapse: collapse;
+    margin: auto;
+    align: center;
+}
+th {
+    font-family: Chilanka;
+    color: #EDB749;
+    border-bottom: 2px solid #d6b000;
+    /*padding: 12px 17px;*/
+    height: 50px;
+}
+td {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    color: #9FB4D9;
+    font-size: 25px;
+    border-bottom: 1px solid #deb887;
+    border-right:1px solid #deb887;
+    border-left:1px solid #deb887;
+    padding: 7px 17px;
+    height: 100px;
+}
