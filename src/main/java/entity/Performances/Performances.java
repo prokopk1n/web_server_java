@@ -100,6 +100,14 @@ public class Performances {
         this.theaters = theaters;
     }
 
+    public List<Schedule> getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(List<Schedule> schedule) {
+        this.schedule = schedule;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -156,6 +164,7 @@ public class Performances {
 
     @OneToMany(mappedBy = "performances", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Perf_persons> perf_persons;
+
 
     @OneToMany(mappedBy = "performances", cascade = CascadeType.ALL, orphanRemoval = true) // имя поля на стороне владельца
     private List<Schedule> schedule;
