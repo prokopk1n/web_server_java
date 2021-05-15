@@ -16,6 +16,15 @@
     <form action="/changePerformance?perf_id=${performances.getPerformance_id()}" method="post">
         <ul>
             <li>
+                <label for="seat">Театр</label>
+                <select id="seat" name="theater_name">
+                    <option selected>${performances.getTheater().getName()}</option>
+                    <c:forEach  items="${theaters}" var ="theater">
+                        <option>${theater.getName()}</option>
+                    </c:forEach>
+                </select>
+            </li>
+
                 <label for="name">Название</label>
                 <input type="text" id="name" name="name" value="${performances.getName()}">
             </li>
@@ -50,7 +59,7 @@
                     <ul>
                         <li>
                                 ${person.getPeople().getName()}
-                                <button formaction="${pageContext.request.contextPath}/deleteMember?perf_id=${performances.getPerformance_id()}&member_id=${person.getPerson_id()}" formmethod="post">
+                                <button formaction="${pageContext.request.contextPath}/deleteMember?member_id=${person.getPerson_id()}" formmethod="post">
                                     Удалить
                                 </button>
                         </li>
@@ -78,5 +87,11 @@
     </form>
 </div>
 
+<br>
+<a class="mybutton" href="/addEvent?perf_id=${performances.getPerformance_id()}">
+        Добавить сеанс
+</a>
+
 
 </body>
+</html>

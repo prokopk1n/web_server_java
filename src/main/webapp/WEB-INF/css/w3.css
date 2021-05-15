@@ -1,5 +1,5 @@
 body {
-    margin: 0 auto;
+    margin: 30px;
     background: #FCF2E5;
 }
 
@@ -102,6 +102,23 @@ a {
     color: #9FB4D9;
 }
 
+a.mybutton {
+    text-decoration: none; /*убираем подчеркивание текста ссылок*/
+    background:#9FB4D9; /*добавляем фон к пункту меню*/
+    color:#fff; /*меняем цвет ссылок*/
+    padding:10px; /*добавляем отступ*/
+    font-family: Courier New, monospace; /*меняем шрифт*/
+    border-radius:4px; /*добавляем скругление*/
+    -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+    -o-transition: all 0.3s 0.01s ease;
+    -webkit-transition: all 0.3s 0.01s ease;
+    text-align: center;
+}
+
+a.mybutton:hover{
+    background: #4854A8;
+}
+
 a:hover{
     border-radius:4px;
     background: #FFF8F0;
@@ -134,4 +151,12 @@ td {
     border-left:1px solid #deb887;
     padding: 7px 17px;
     height: 100px;
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+}
+ul {
+    margin-left: 0; /* Отступ слева в браузере IE и Opera */
+    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
 }

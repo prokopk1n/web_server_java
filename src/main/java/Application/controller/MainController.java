@@ -1,23 +1,40 @@
 package Application.controller;
 
+import DAO.Concert_halls.SeatsDAO;
+import DAO.Concert_halls.SeatsDAOImpl;
+import DAO.Concert_halls.Type_of_seatsDAO;
+import DAO.Concert_halls.Type_of_seatsDAOImpl;
 import DAO.Performances.*;
 import DAO.Theaters.TheatersDAO;
 import DAO.Theaters.TheatersDAOImpl;
+import DAO.Tickets.ScheduleDAO;
+import DAO.Tickets.ScheduleDAOImpl;
+import DAO.Tickets.TicketsDAO;
+import DAO.Tickets.TicketsDAOImpl;
+import entity.Concert_halls.Concert_halls;
+import entity.Concert_halls.Type_of_seats;
 import entity.Performances.People;
 import entity.Performances.Perf_persons;
 import entity.Performances.Performances;
 import entity.Theaters.Theaters;
+import entity.Tickets.Schedule;
+import entity.Tickets.Tickets;
+import org.apache.catalina.webresources.TomcatJarInputStream;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
+import java.lang.reflect.Type;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class MainController
@@ -52,12 +69,21 @@ public class MainController
         return "index";
     }
 
+    @RequestMapping(value = "/deletePerformance", method = RequestMethod.POST)
+    public String createPerformance(@RequestParam Long perf_id) throws SQLException {
+        PerformancesDAO performancesDAO = new PerformancesDAOImpl();
+        Performances performances = performancesDAO.getObjectById(perf_id);
+        performancesDAO.delete(performances);
+        System.out.println("HERE I AM");
+        return "redirect:performances";
+    }
+
     @RequestMapping(value =  "/performance", method = RequestMethod.GET)
-    public String gerPerformance(@RequestParam Long id, Model model) throws SQLException {
+    public String getPerformance(@RequestParam Long id, Model model) throws SQLException {
         PerformancesDAO performancesDAO = new PerformancesDAOImpl();
         Performances performances = performancesDAO.getObjectById(id);
         model.addAttribute("performances", performances);
-        System.out.println(performances.getSchedule().iterator().next().getDate());
+        //System.out.println(performances.toString());
         return "performance";
     }
 
@@ -131,11 +157,261 @@ public class MainController
         return "redirect:performance?id=" + perf_id;
     }
 
+    @RequestMapping(value =  "/deleteMember", method = RequestMethod.POST)
+    public String deleteMember(@RequestParam Long member_id) throws SQLException {
+        Perf_personsDAO perf_personsDAO = new Perf_personsDAOImpl();
+        Perf_persons perf_persons = perf_personsDAO.getObjectById(member_id);
+        long id = perf_persons.getPerformances().getPerformance_id();
+        perf_personsDAO.delete(perf_persons);
+        return "redirect:changePerformance?perf_id=" + id;
+    }
 
+    @RequestMapping(value = {"theaters"}, method = RequestMethod.GET)
+    public String theaters(Model model) throws SQLException {
+        TheatersDAO theatersDAO = new TheatersDAOImpl();
+        Collection<Theaters> theaters = theatersDAO.getAll();
+        model.addAttribute("theaters", theaters);
+        return "theaters";
+    }
 
+    @RequestMapping(value = {"addTheater"}, method = RequestMethod.GET)
+    public String addTheater(Model model) throws SQLException {
+        return "addingTheater";
+    }
 
+    @RequestMapping(value = "addTheater", method = RequestMethod.POST)
+    public String createTheater(WebRequest webRequest) throws SQLException
+    {
+        TheatersDAO theatersDAO = new TheatersDAOImpl();
+        Theaters theaters = new Theaters(webRequest.getParameter("name"), webRequest.getParameter("site"), webRequest.getParameter("address"),
+                webRequest.getParameter("phone"), null, null);
+        theatersDAO.save(theaters);
+        return "redirect:theaters";
+    }
 
+    @RequestMapping(value="/theater", method = RequestMethod.GET)
+    public String getTheater(@RequestParam Long theater_id, Model model) throws SQLException
+    {
+        TheatersDAO theatersDAO = new TheatersDAOImpl();
+        Theaters theaters = theatersDAO.getObjectById(theater_id);
+        model.addAttribute("theater", theaters);
+        return "theater";
+    }
 
+    @RequestMapping(value =  "/deleteTheater", method = RequestMethod.POST)
+    public String deleteTheater(@RequestParam Long theater_id) throws SQLException {
+        TheatersDAO theatersDAO = new TheatersDAOImpl();
+        theatersDAO.delete(theatersDAO.getObjectById(theater_id));
+        return "redirect:theaters";
+    }
+
+    @RequestMapping(value = "/changeTheater", method = RequestMethod.GET)
+    public String changeTheater(@RequestParam Long theater_id, Model model) throws SQLException
+    {
+        TheatersDAO theatersDAO = new TheatersDAOImpl();
+        Theaters theaters = theatersDAO.getObjectById(theater_id);
+        model.addAttribute("theater", theaters);
+        return "changeTheater";
+    }
+
+    @RequestMapping(value = "/changeTheater", method = RequestMethod.POST)
+    public String updateTheater(@RequestParam Long theater_id, WebRequest webRequest, Model model) throws SQLException
+    {
+        TheatersDAO theatersDAO = new TheatersDAOImpl();
+        Theaters theaters = theatersDAO.getObjectById(theater_id);
+        theaters.setName(webRequest.getParameter("name"));
+        theaters.setPhone(webRequest.getParameter("phone"));
+        theaters.setEmail(webRequest.getParameter("site"));
+        theaters.setAddress(webRequest.getParameter("address"));
+        theatersDAO.update(theaters);
+        return "redirect:/theater?theater_id="+theater_id;
+    }
+
+    @RequestMapping(value = "/schedule", method = RequestMethod.GET)
+    public String getEvent(@RequestParam Long id, Model model) throws SQLException
+    {
+        ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
+        Schedule schedule = scheduleDAO.getObjectById(id);
+        model.addAttribute("event", schedule);
+        return "event";
+    }
+
+    @RequestMapping(value = "/tickets", method = RequestMethod.GET)
+    public String getTickets(@RequestParam Long event_id, Model model) throws SQLException
+    {
+        ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
+        Schedule schedule = scheduleDAO.getObjectById(event_id);
+        model.addAttribute("event", schedule);
+
+        Type_of_seatsDAO type_of_seatsDAO = new Type_of_seatsDAOImpl();
+        Collection<Type_of_seats> type_of_seats = type_of_seatsDAO.getAll();
+        int max = 0;
+        for (Type_of_seats type: type_of_seats)
+        {
+            if (type.getType_id()>max)
+                max=(int)type.getType_id();
+        }
+
+        List<Tickets> types[] = new ArrayList[max+1];
+        for (int i=0;i<=max;i++)
+            types[i] = new ArrayList<Tickets>();
+
+        for (Tickets ticket: schedule.getTickets())
+        {
+            types[(int)ticket.getSeats().getType_of_seats().getType_id()].add(ticket);
+        }
+        model.addAttribute("types", types);
+        model.addAttribute("type_of_seats", type_of_seats);
+        return "tickets";
+    }
+
+    @RequestMapping(value="/buyTicket", method = RequestMethod.POST)
+    public String buyTicket(@RequestParam Long ticket_id) throws SQLException
+    {
+        TicketsDAO ticketsDAO = new TicketsDAOImpl();
+        Tickets tickets= ticketsDAO.getObjectById(ticket_id);
+        tickets.setIn_stock(false);
+        Long event_id = tickets.getSchedule().getEvent_id();
+        ticketsDAO.update(tickets);
+        return "redirect:/tickets?event_id=" + event_id;
+    }
+
+    @RequestMapping(value = "changeTickets", method = RequestMethod.GET)
+    public String changeTickets(@RequestParam Long event_id, Model model) throws SQLException
+    {
+        ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
+        Schedule schedule = scheduleDAO.getObjectById(event_id);
+
+        model.addAttribute("seats", schedule.getConcert_halls().getSeats());
+        model.addAttribute("event", schedule);
+        return "changeTicket";
+    }
+
+    @RequestMapping(value = "changeTicket", method = RequestMethod.POST)
+    public String changeTicket(@RequestParam Map<String, String> parametrs, WebRequest webRequest) throws SQLException
+    {
+        Long event_id = Long.parseLong(parametrs.get("event_id"));
+        long seat_id = Long.parseLong(parametrs.get("seat_id"));
+        ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
+        Schedule schedule = scheduleDAO.getObjectById(event_id);
+        boolean ticket_exist = false;
+
+        TicketsDAO ticketsDAO = new TicketsDAOImpl();
+        String cost = webRequest.getParameter("cost");
+        if (cost==null)
+            cost = "1000";
+        String in_stock = webRequest.getParameter("in_stock");
+        if (in_stock==null)
+            in_stock = "Нет";
+
+        for(Tickets ticket: schedule.getTickets())
+        {
+            if (ticket.getSeats().getSeat_id()==seat_id)
+            {
+                ticket_exist = true;
+                ticket.setCost(Float.parseFloat(cost));
+                ticket.setIn_stock(in_stock.equals("Да"));
+                ticketsDAO.update(ticket);
+            }
+        }
+
+        if (!ticket_exist)
+        {
+            SeatsDAO seatsDAO = new SeatsDAOImpl();
+            if (webRequest.getParameter("cost")!=null && webRequest.getParameter("in_cost")!=null) {
+                Tickets tickets = new Tickets(schedule, seatsDAO.getObjectById(seat_id), Float.parseFloat(cost),
+                        in_stock.equals("Да"));
+                ticketsDAO.save(tickets);
+            }
+        }
+
+        return "redirect:changeTickets?event_id="+event_id;
+    }
+
+    @RequestMapping(value = "addEvent", method = RequestMethod.GET)
+    public String addEvent(@RequestParam Long perf_id, Model model) throws SQLException
+    {
+        PerformancesDAO performancesDAO = new PerformancesDAOImpl();
+        Performances performances = performancesDAO.getObjectById(perf_id);
+
+        model.addAttribute("performance", performances);
+        model.addAttribute("theater", performances.getTheater());
+        return "addEvent";
+    }
+
+    @RequestMapping(value = "addEvent", method = RequestMethod.POST)
+    public String newEvent(@RequestParam Long perf_id, WebRequest webRequest) throws SQLException
+    {
+        PerformancesDAO performancesDAO = new PerformancesDAOImpl();
+        Performances performances = performancesDAO.getObjectById(perf_id);
+
+        LocalDate localDate = LocalDate.parse(webRequest.getParameter("date"));
+
+        if (localDate.compareTo(performances.getStart())>=0 && localDate.compareTo(performances.getFinish())<=0)
+            for (Concert_halls concert_halls: performances.getTheater().getConcert_halls())
+            {
+                if (concert_halls.getName().equals(webRequest.getParameter("hall_name")))
+                {
+                    ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
+                    Schedule schedule = new Schedule(concert_halls, performances, LocalDateTime.of(localDate,
+                            LocalTime.parse(webRequest.getParameter("time"))));
+                    scheduleDAO.save(schedule);
+                }
+            }
+
+        return "redirect:/performance?id="+perf_id;
+    }
+
+    @RequestMapping(value = "changeEvent", method = RequestMethod.GET)
+    public String changingEvent(@RequestParam Long event_id, Model model) throws SQLException
+    {
+        ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
+        Schedule schedule = scheduleDAO.getObjectById(event_id);
+        model.addAttribute("event", schedule);
+        return "changeEvent";
+    }
+
+    @RequestMapping(value = "changeEvent", method = RequestMethod.POST)
+    public String changeEvent(@RequestParam Long event_id, WebRequest webRequest) throws SQLException
+    {
+        ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
+        Schedule schedule = scheduleDAO.getObjectById(event_id);
+
+        Performances performances = schedule.getPerformances();
+        LocalDate localDate = LocalDate.parse(webRequest.getParameter("date"));
+
+        if (localDate.compareTo(performances.getStart())>=0 && localDate.compareTo(performances.getFinish())<=0)
+            for (Concert_halls concert_halls: performances.getTheater().getConcert_halls())
+            {
+                if (concert_halls.getName().equals(webRequest.getParameter("hall_name")))
+                {
+                    if (!concert_halls.getName().equals(schedule.getConcert_halls().getName()))
+                    {
+                        Schedule newSchedule = new Schedule(concert_halls, performances, LocalDateTime.of(localDate,
+                                LocalTime.parse(webRequest.getParameter("time"))));
+                        scheduleDAO.delete(schedule);
+                        scheduleDAO.save(newSchedule);
+                    }
+                    else
+                    {
+                        schedule.setDate(LocalDateTime.of(localDate,
+                                LocalTime.parse(webRequest.getParameter("time"))));
+                        scheduleDAO.save(schedule);
+                    }
+                }
+            }
+
+        return "redirect:/event?event_id="+event_id;
+    }
+
+    @RequestMapping(value =  "/deleteEvent", method = RequestMethod.POST)
+    public String deleteEvent(@RequestParam Long event_id) throws SQLException {
+        ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
+        Schedule schedule= scheduleDAO.getObjectById(event_id);
+        Long perf_id = schedule.getPerformances().getPerformance_id();
+        scheduleDAO.delete(scheduleDAO.getObjectById(event_id));
+        return "redirect:performance?id=" + perf_id;
+    }
 
 
 }

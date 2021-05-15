@@ -24,7 +24,7 @@
                 <td><a href="${pageContext.request.contextPath}/performance?id=${performance.getPerformance_id()}">${performance.getName()}</a></td>
                 <td>${performance.getStart()} - ${performance.getFinish()}</td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/theater?id=${performance.getTheater().getTheater_id()}">
+                    <a href="${pageContext.request.contextPath}/theater?theater_id=${performance.getTheater().getTheater_id()}">
                         ${performance.getTheater().getName()}
                     </a>
                 </td>
@@ -32,8 +32,8 @@
         </c:forEach>
     </table>
 </div>
-
-<div style="position: absolute; left: 43%; bottom: -50px">
+<br>
+<div style="position: relative">
     <a class="mybutton" href="${pageContext.request.contextPath}/addPerformance">Добавить спектакль</a>
 </div>
 </body>
