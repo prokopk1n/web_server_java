@@ -33,12 +33,12 @@
             </td>
         </tr>
         <tr>
-            <td>Актеры</td>
+            <td>Участники</td>
             <td>
                 <c:forEach  items="${performances.getPerf_persons()}" var ="person">
                     <ul>
                         <li>
-                                ${person.getPeople().getName()}
+                                ${person.getPeople().getName()} - ${person.getRole()}
                         </li>
                     </ul>
                 </c:forEach>

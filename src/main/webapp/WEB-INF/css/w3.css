@@ -149,6 +149,7 @@ td {
     border-bottom: 1px solid #deb887;
     border-right:1px solid #deb887;
     border-left:1px solid #deb887;
+    border-top: 1px solid #deb887;
     padding: 7px 17px;
     height: 100px;
 }

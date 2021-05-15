@@ -57,9 +57,6 @@
 <form>
     <div style="position: relative">
         <a class="mybutton" href="${pageContext.request.contextPath}/changeTheater?theater_id=${theater.getTheater_id()}">Изменить театр</a>
-        <button formaction="${pageContext.request.contextPath}/deleteTheater?theater_id=${theater.getTheater_id()}" formmethod="post">
-            Удалить театр
-        </button>
     </div>
 </form>
 </body>

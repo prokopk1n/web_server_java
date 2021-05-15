@@ -113,10 +113,6 @@ public class MainController
         performances.setName(request.getParameter("name"));
         performances.setDescription(request.getParameter("description"));
 
-        TheatersDAO theatersDAO = new TheatersDAOImpl();
-        Theaters theaters = theatersDAO.getTheaterByName(request.getParameter("theater_name")).iterator().next();
-        performances.setTheater(theaters);
-
 
         String actorName = request.getParameter("member");
         boolean alreadyHasThisMan = false;
@@ -411,6 +407,26 @@ public class MainController
         Long perf_id = schedule.getPerformances().getPerformance_id();
         scheduleDAO.delete(scheduleDAO.getObjectById(event_id));
         return "redirect:performance?id=" + perf_id;
+    }
+
+    @RequestMapping(value =  "/contacts", method = RequestMethod.GET)
+    public String getContacts() throws SQLException {
+        return "contacts";
+    }
+
+    @RequestMapping(value = "addPerson", method = RequestMethod.GET)
+    public String addPeople() throws SQLException
+    {
+        return "addPerson";
+    }
+
+    @RequestMapping(value = "addPerson", method = RequestMethod.POST)
+    public String newPerson(WebRequest webRequest) throws SQLException
+    {
+        PeopleDAO peopleDAO = new PeopleDAOImpl();
+        People people = new People(webRequest.getParameter("name"), webRequest.getParameter("description"), null);
+        peopleDAO.save(people);
+        return "redirect:/index";
     }
 
 

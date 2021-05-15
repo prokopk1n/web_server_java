@@ -16,15 +16,6 @@
     <form action="/changePerformance?perf_id=${performances.getPerformance_id()}" method="post">
         <ul>
             <li>
-                <label for="seat">Театр</label>
-                <select id="seat" name="theater_name">
-                    <option selected>${performances.getTheater().getName()}</option>
-                    <c:forEach  items="${theaters}" var ="theater">
-                        <option>${theater.getName()}</option>
-                    </c:forEach>
-                </select>
-            </li>
-
                 <label for="name">Название</label>
                 <input type="text" id="name" name="name" value="${performances.getName()}">
             </li>
@@ -43,15 +34,6 @@
             <li>
                 <label for="description">Описание</label>
                 <textarea id="description" name="description" cols="75" rows="30">${performances.getDescription()}</textarea>
-            </li>
-            <li>
-                <label for="theater">Театр</label>
-                <select id="theater" name="theater_name">
-                    <option selected>${performances.getTheater().getName()}</option>
-                    <c:forEach  items="${theaters}" var ="theater">
-                        <option>${theater.getName()}</option>
-                    </c:forEach>
-                </select>
             </li>
             <li>
                 Актеры
@@ -75,6 +57,8 @@
                     </c:forEach>
                 </select>
             </li>
+            Если не нашли подходящий вариант, то можно:
+            <button formaction="addPerson" formmethod="get">Добавить нового человека</button>
             <li>
                 <label for="role">Роль</label>
                 <input type="text" id="role" name="role">

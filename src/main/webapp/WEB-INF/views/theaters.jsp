@@ -31,9 +31,6 @@
             </tr>
         </c:forEach>
     </table>
-    <div style="position: relative">
-        <a class="mybutton" href="${pageContext.request.contextPath}/addTheater">Добавить театр</a>
-    </div>
 </div>
 </body>
 
