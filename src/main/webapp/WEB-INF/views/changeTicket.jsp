@@ -24,8 +24,8 @@
                     </c:if>
                     ${seat.getRow()}
                     ${seat.getSeat()}
-                        <label for="cost">Стоимость</label><input type="text" id="cost" name="cost">
-                        <label for="cost">В продаже</label>
+                        <label for="cost">Стоимость</label><input type="text" id="cost" name="cost" required value="1000">
+                        <label for="in_stock">В продаже</label>
                         <select id="in_stock" name="in_stock">
                             <option>Да</option>
                             <option>Нет</option>

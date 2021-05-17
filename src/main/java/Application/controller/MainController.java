@@ -66,7 +66,7 @@ public class MainController
                 LocalDate.parse(request.getParameter("finish")), request.getParameter("description"), null, theaters);
         PerformancesDAO performancesDAO = new PerformancesDAOImpl();
         performancesDAO.save(performances);
-        return "index";
+        return "redirect:index";
     }
 
     @RequestMapping(value = "/deletePerformance", method = RequestMethod.POST)
@@ -291,14 +291,17 @@ public class MainController
         ScheduleDAO scheduleDAO = new ScheduleDAOImpl();
         Schedule schedule = scheduleDAO.getObjectById(event_id);
         boolean ticket_exist = false;
-
+        System.out.println("HELLO");
         TicketsDAO ticketsDAO = new TicketsDAOImpl();
         String cost = webRequest.getParameter("cost");
-        if (cost==null)
+        if (cost==null) {
+            System.out.println("ABC");
             cost = "1000";
+        }
         String in_stock = webRequest.getParameter("in_stock");
         if (in_stock==null)
             in_stock = "Нет";
+        System.out.println(in_stock + cost);
 
         for(Tickets ticket: schedule.getTickets())
         {
@@ -427,6 +430,41 @@ public class MainController
         People people = new People(webRequest.getParameter("name"), webRequest.getParameter("description"), null);
         peopleDAO.save(people);
         return "redirect:/index";
+    }
+
+    @RequestMapping(value = "members", method = RequestMethod.GET)
+    public String getMembers(Model model) throws SQLException
+    {
+        PeopleDAO peopleDAO = new PeopleDAOImpl();
+        model.addAttribute("members", peopleDAO.getAll());
+        return "actors";
+    }
+
+    @RequestMapping(value = "deleteMan", method = RequestMethod.POST)
+    public String deleteMan(@RequestParam Long member_id) throws SQLException
+    {
+        PeopleDAO peopleDAO = new PeopleDAOImpl();
+        peopleDAO.delete(peopleDAO.getObjectById(member_id));
+        return "redirect:/members";
+    }
+
+    @RequestMapping(value = "changeMan", method = RequestMethod.GET)
+    public String changeMan(@RequestParam Long member_id, Model model) throws SQLException
+    {
+        PeopleDAO peopleDAO = new PeopleDAOImpl();
+        model.addAttribute("member", peopleDAO.getObjectById(member_id));
+        return "changeMember";
+    }
+
+    @RequestMapping(value = "changeMan", method = RequestMethod.POST)
+    public String changeManPost(@RequestParam Long member_id, WebRequest webRequest) throws SQLException
+    {
+        PeopleDAO peopleDAO = new PeopleDAOImpl();
+        People people = peopleDAO.getObjectById(member_id);
+        people.setDescription(webRequest.getParameter("description"));
+        people.setName(webRequest.getParameter("name"));
+        peopleDAO.update(people);
+        return "redirect:members";
     }
 
 

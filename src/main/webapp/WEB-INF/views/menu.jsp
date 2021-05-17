@@ -13,6 +13,7 @@
             <li><a class="menu" href="${pageContext.request.contextPath}/performances">Спектакли</a></li>
             <li><a class="menu" href="${pageContext.request.contextPath}/theaters">Театры</a></li>
             <li><a class="menu" href="${pageContext.request.contextPath}/contacts">Контакты</a></li>
+            <li><a class="menu" href="${pageContext.request.contextPath}/members">Участники</a></li>
         </ul>
 </div>
 <br>
