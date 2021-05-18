@@ -1,10 +1,14 @@
 # Main commands
-    mvn mvn exec:java -> build and launch aplication
+    mvn clean -> delete compile results
+    mvn compile -> compile project
+    mvn mvn exec:java -> launch application
     mvn test -> back-end tests
     mvn test -Dtest=webTest -> Server must be launched!
     ant dbcreate -> create db and user appadmin
     ant dbinsert -> fill db
 
+# Результаты тестирования веб-приложения
+![alt text](pictures/selenium_ide_result.png) 
 
 # Текущая версия сайта
 ## Главное меню (страница всех спектаклей)
