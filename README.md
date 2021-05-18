@@ -3,7 +3,7 @@
     mvn compile -> compile project
     mvn mvn exec:java -> launch application
     mvn test -> back-end tests
-    mvn test -Dtest=webTest -> Server must be launched!
+    mvn test -Dtest=webTest -> web tests(Server must be launched!)
     ant dbcreate -> create db and user appadmin
     ant dbinsert -> fill db
 
