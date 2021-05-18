@@ -11,8 +11,8 @@
 ![alt text](pictures/performances.png) 
 ## Страница всех театров
 ![alt text](pictures/theaters.png) 
-## Страница со всеми театртальными персоналиями
-![alt text](pictures/mambers.png) 
+## Страница со всеми театральными персоналиями
+![alt text](pictures/members.png) 
 ## Страница по добавлению нового спектакля
 ![alt text](pictures/addNewPerformance.png)
 ## Страница конкретного спектакля
@@ -26,4 +26,6 @@
 ### Страница по формированию стоимости билетов для нового сеанса
 ![alt text](pictures/ticketsNewEvent.png) 
 ## Страница по добавлению новой персоналии
-![alt text](pictures/newMember.png) 
+![alt text](pictures/newMember.png)
+## Страница контактов
+![alt text](pictures/contacts.png)
