@@ -37,7 +37,7 @@
     </target>
 
     <target name= "run" depends="build">
-        <java classname="Main" classpath="${dir.build}" classpathref="lib.path">
+        <java classname="Application.MainApplication" classpath="${dir.build}" classpathref="lib.path">
             <classpath>
                 <pathelement path="src/main/resources"/>
             </classpath>

@@ -1,0 +1,2182 @@
+{
+  "id": "8a14318d-ef3f-4bbc-8696-4d12408063f7",
+  "version": "2.0",
+  "name": "web-app",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "fd152bde-4e1e-4316-a8fc-b44d7b2c40d3",
+    "name": "changePerformance",
+    "commands": [{
+      "id": "6bc38db4-70fc-414d-a7f9-7379bc205d9a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5e5335e-f03f-4105-b330-c828bc0ebcc7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x999",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "22909409-201f-4cdc-aac2-fa9aaef3bbdf",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Весы",
+      "targets": [
+        ["linkText=Весы", "linkText"],
+        ["css=tr:nth-child(3) > td:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Весы')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performance?id=2')]", "xpath:href"],
+        ["xpath=//tr[3]/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Весы')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d0f065c-8b82-4ad0-bec5-1ce7da618732",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Изменить спектакль",
+      "targets": [
+        ["linkText=Изменить спектакль", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Изменить спектакль')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/changePerformance?perf_id=2')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Изменить спектакль')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c5b3cc8-eaf5-438f-9c53-b821e31bc467",
+      "comment": "",
+      "command": "click",
+      "target": "css=form li:nth-child(5)",
+      "targets": [
+        ["css=form li:nth-child(5)", "css:finder"],
+        ["xpath=//form/ul/li[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8184e80a-7999-4f22-8731-55b7e25427ee",
+      "comment": "",
+      "command": "type",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Новый текст"
+    }, {
+      "id": "5ca10b36-dcd7-4e4e-8303-ce1c508711f8",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "571975bb-5da0-433c-800a-94fe1147ae88",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Весы123"
+    }, {
+      "id": "6ca367d1-8480-4154-b1cf-21deabda2944",
+      "comment": "",
+      "command": "select",
+      "target": "id=member",
+      "targets": [],
+      "value": "label=Лян Ли"
+    }, {
+      "id": "612eed58-eb54-4c75-8008-720819cecf5d",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=member",
+      "targets": [
+        ["id=member", "id"],
+        ["name=member", "name"],
+        ["css=#member", "css:finder"],
+        ["xpath=//select[@id='member']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "-146.4250030517578,-549"
+    }, {
+      "id": "37eb14f8-65e9-48fb-99e0-97bfb54ad12e",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=member",
+      "targets": [
+        ["id=member", "id"],
+        ["name=member", "name"],
+        ["css=#member", "css:finder"],
+        ["xpath=//select[@id='member']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "-146.4250030517578,-549"
+    }, {
+      "id": "830f4d0b-c180-42c9-8ab5-7b7a6b447318",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=member",
+      "targets": [
+        ["id=member", "id"],
+        ["name=member", "name"],
+        ["css=#member", "css:finder"],
+        ["xpath=//select[@id='member']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "-146.4250030517578,-549"
+    }, {
+      "id": "e8317017-77fc-49e8-a145-30383dfd901d",
+      "comment": "",
+      "command": "click",
+      "target": "id=member",
+      "targets": [
+        ["id=member", "id"],
+        ["name=member", "name"],
+        ["css=#member", "css:finder"],
+        ["xpath=//select[@id='member']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64300a23-69f8-4e7b-b2d8-a07e21a8253f",
+      "comment": "",
+      "command": "click",
+      "target": "id=role",
+      "targets": [
+        ["id=role", "id"],
+        ["name=role", "name"],
+        ["css=#role", "css:finder"],
+        ["xpath=//input[@id='role']", "xpath:attributes"],
+        ["xpath=//li[8]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1614e09b-09c5-4793-8b0f-f129bc0b9a0a",
+      "comment": "",
+      "command": "type",
+      "target": "id=role",
+      "targets": [
+        ["id=role", "id"],
+        ["name=role", "name"],
+        ["css=#role", "css:finder"],
+        ["xpath=//input[@id='role']", "xpath:attributes"],
+        ["xpath=//li[8]/input", "xpath:position"]
+      ],
+      "value": "АКТОР"
+    }, {
+      "id": "adf2620e-12cb-427c-ba7d-9978b0e9eea5",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(10) > button",
+      "targets": [
+        ["css=li:nth-child(10) > button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//li[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d46cd77c-5ca4-41ec-979a-1bf244726356",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Весы123')]", "xpath:innerText"]
+      ],
+      "value": "Весы123"
+    }, {
+      "id": "0dd71872-7c83-4ed5-81a7-cfe8e47eb376",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(2) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(2) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[2]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Новый текст')]", "xpath:innerText"]
+      ],
+      "value": "Новый текст"
+    }, {
+      "id": "cd66ab04-925d-4b90-89e6-467c4bcc6271",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(4) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(4) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[4]/td[2]", "xpath:position"]
+      ],
+      "value": "Лян Ли - АКТОР\\nЕвгений Валерьевич Гришковец - Автор и режиссёр\\nАртём Алексеевич Соколов - Артём\\nАртём Сергеевич Волобуев - Эдуард"
+    }, {
+      "id": "c85eb905-199b-47ba-808c-07d7d8f2465f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Изменить спектакль",
+      "targets": [
+        ["linkText=Изменить спектакль", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Изменить спектакль')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/changePerformance?perf_id=2')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Изменить спектакль')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "891f606f-4c32-441a-a6d2-097bfe507676",
+      "comment": "",
+      "command": "click",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5392d22a-3a51-455d-988e-55cd30e79244",
+      "comment": "",
+      "command": "click",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "27433de7-9704-4668-b207-335f2b82dc0d",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7b6d3c47-6cc3-4d59-a5f3-8a3e71812524",
+      "comment": "",
+      "command": "click",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "699bbf9d-9c07-4d28-930d-89f78e4cc0e8",
+      "comment": "",
+      "command": "type",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Сцена Московского Художественного театра стала очередной площадкой для произведений Гришковца. Новый авторский спектакль «Весы» включает немалое количество персонажей, \\n\t исполнение которых возложено на мастеров актерского искусства: Игоря Золотовицкого, Веру Харыбину, Валерия Трошина, Сергея Угрюмова, Артёма Соколова и других не менее известных актёров.\\n\t В программе о спектакле «Весы» написано, что данная постановка – это «ночь в одном действии», а москвичи уже вовсю заказывают билеты!\\n\t Немудрено, ведь все спектакли Гришковца проходят при абсолютных аншлагах."
+    }, {
+      "id": "990812fe-3a7c-4fb7-80de-1d84d3115e98",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e6722ce-18ca-414b-89be-e957bb9bc8fb",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Весы"
+    }, {
+      "id": "438df84e-898c-42c0-abd6-c7351f22e739",
+      "comment": "",
+      "command": "click",
+      "target": "css=ul:nth-child(1) > li:nth-child(1) > button",
+      "targets": [
+        ["css=ul:nth-child(1) > li:nth-child(1) > button", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Удалить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "16f71472-9422-4921-9c81-95e2991a80e7",
+      "comment": "",
+      "command": "click",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4069daa3-6036-43b9-a70b-0f479765d59e",
+      "comment": "",
+      "command": "click",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f38e5e8-0e45-4409-be78-7f0bb9913d22",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f80cb218-6673-4689-a715-26b796341b9c",
+      "comment": "",
+      "command": "click",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "93569376-10a7-4e1a-bdf8-0a7acc3f8752",
+      "comment": "",
+      "command": "type",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Сцена Московского Художественного театра стала очередной площадкой для произведений Гришковца. Новый авторский спектакль «Весы» включает немалое количество персонажей, \\n\t исполнение которых возложено на мастеров актерского искусства: Игоря Золотовицкого, Веру Харыбину, Валерия Трошина, Сергея Угрюмова, Артёма Соколова и других не менее известных актёров.\\n\t В программе о спектакле «Весы» написано, что данная постановка – это «ночь в одном действии», а москвичи уже вовсю заказывают билеты!\\n\t Немудрено, ведь все спектакли Гришковца проходят при абсолютных аншлагах."
+    }, {
+      "id": "34df8ed3-26b2-4586-b04b-df4129435450",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f231aee8-8500-481a-8f8c-000d1cdc632b",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Весы"
+    }, {
+      "id": "6560e1c1-89a6-49de-bfa9-2f6f73eb44af",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(10) > button",
+      "targets": [
+        ["css=li:nth-child(10) > button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//li[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9267407-20bb-43be-9241-6b3e55f0e611",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Весы')]", "xpath:innerText"]
+      ],
+      "value": "Весы"
+    }, {
+      "id": "9920c22b-ec1c-404f-aef9-4cb5e9370df1",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(2) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(2) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[2]/td[2]", "xpath:position"]
+      ],
+      "value": "Сцена Московского Художественного театра стала очередной площадкой для произведений Гришковца. Новый авторский спектакль «Весы» включает немалое количество персонажей, исполнение которых возложено на мастеров актерского искусства: Игоря Золотовицкого, Веру Харыбину, Валерия Трошина, Сергея Угрюмова, Артёма Соколова и других не менее известных актёров. В программе о спектакле «Весы» написано, что данная постановка – это «ночь в одном действии», а москвичи уже вовсю заказывают билеты! Немудрено, ведь все спектакли Гришковца проходят при абсолютных аншлагах."
+    }, {
+      "id": "cd4d8db8-9bda-4bc7-ac12-5baae2e3bacb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(4) ul:nth-child(1) > li",
+      "targets": [
+        ["css=tr:nth-child(4) ul:nth-child(1) > li", "css:finder"],
+        ["xpath=//tr[4]/td[2]/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Евгений Валерьевич Гришковец - Автор и режиссёр')]", "xpath:innerText"]
+      ],
+      "value": "Евгений Валерьевич Гришковец - Автор и режиссёр"
+    }]
+  }, {
+    "id": "37c3ab6d-3724-40e1-a741-3e6906fb4d27",
+    "name": "changeTheater",
+    "commands": [{
+      "id": "9da5f2e7-14eb-4ddb-b7c6-6a9b0025e1ff",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c2f1c49-fe7d-4407-8018-a8f7b886282b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x999",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1d4b8756-52d7-447a-b55e-a7981501672a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Театры",
+      "targets": [
+        ["linkText=Театры", "linkText"],
+        ["css=li:nth-child(3) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Театры')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/theaters')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Театры')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb62f7ea-4ca3-47aa-8f54-9d824ec244ef",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Большой театр",
+      "targets": [
+        ["linkText=Большой театр", "linkText"],
+        ["css=tr:nth-child(2) > td > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Большой театр')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/theater?theater_id=1')]", "xpath:href"],
+        ["xpath=//td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Большой театр')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2bc601d7-22c9-43e0-833b-c2c68bd75e01",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Изменить театр",
+      "targets": [
+        ["linkText=Изменить театр", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Изменить театр')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/changeTheater?theater_id=1')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Изменить театр')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "57dde61f-b528-4023-9085-e231d9e77dae",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6449bc54-03fa-473f-a5e7-af28d773be1d",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Большой театр123"
+    }, {
+      "id": "70bb0cca-0d18-49a5-94f2-10d13f26aef5",
+      "comment": "",
+      "command": "click",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//li[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b6b9e78-38d4-455d-bce3-a8d1b4c30e63",
+      "comment": "",
+      "command": "click",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//li[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6890a19a-6c08-423d-a8b4-615dd65204e1",
+      "comment": "",
+      "command": "type",
+      "target": "id=phone",
+      "targets": [
+        ["id=phone", "id"],
+        ["name=phone", "name"],
+        ["css=#phone", "css:finder"],
+        ["xpath=//input[@id='phone']", "xpath:attributes"],
+        ["xpath=//li[2]/input", "xpath:position"]
+      ],
+      "value": "88005553535"
+    }, {
+      "id": "cf6a2643-cc87-4b0b-a4e4-f201cfcb81f4",
+      "comment": "",
+      "command": "click",
+      "target": "id=address",
+      "targets": [
+        ["id=address", "id"],
+        ["name=address", "name"],
+        ["css=#address", "css:finder"],
+        ["xpath=//input[@id='address']", "xpath:attributes"],
+        ["xpath=//li[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ddf90e46-dd33-435a-a0dd-530cfcafbaa0",
+      "comment": "",
+      "command": "type",
+      "target": "id=address",
+      "targets": [
+        ["id=address", "id"],
+        ["name=address", "name"],
+        ["css=#address", "css:finder"],
+        ["xpath=//input[@id='address']", "xpath:attributes"],
+        ["xpath=//li[3]/input", "xpath:position"]
+      ],
+      "value": "Театральная пл., 2"
+    }, {
+      "id": "e81241ea-7dc3-4bd8-a248-e09f69130eda",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "faa02487-1ac9-4eae-b62a-e35c641151fb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Большой театр123')]", "xpath:innerText"]
+      ],
+      "value": "Большой театр123"
+    }, {
+      "id": "40b0d0a2-71f3-46cf-a9c3-6be9cc5bc774",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=td li:nth-child(3)",
+      "targets": [
+        ["css=td li:nth-child(3)", "css:finder"],
+        ["xpath=//td[2]/ul/li[3]", "xpath:position"],
+        ["xpath=//li[contains(.,'Театральная пл., 2')]", "xpath:innerText"]
+      ],
+      "value": "Театральная пл., 2"
+    }, {
+      "id": "44590c16-2e9c-40b2-ae0e-a62e6f539ebc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Изменить театр",
+      "targets": [
+        ["linkText=Изменить театр", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Изменить театр')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/changeTheater?theater_id=1')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Изменить театр')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d197a97-743c-4f68-b03d-d34bba666aef",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3d9467a-e35e-470c-8cb3-51b3d1dc8c61",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Большой театр"
+    }, {
+      "id": "874e98a0-2780-4a1f-91df-f41bf8423269",
+      "comment": "",
+      "command": "click",
+      "target": "css=form li:nth-child(2)",
+      "targets": [
+        ["css=form li:nth-child(2)", "css:finder"],
+        ["xpath=//form/ul/li[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0706261-54b3-47ff-9fae-286760c9e31d",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1a6db09-593f-4c5f-ae6d-5f466f6c94c7",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Большой театр')]", "xpath:innerText"]
+      ],
+      "value": "Большой театр"
+    }, {
+      "id": "8aa71b41-977b-497f-ba1a-1474589291d8",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=td li:nth-child(2)",
+      "targets": [
+        ["css=td li:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]/ul/li[2]", "xpath:position"],
+        ["xpath=//li[contains(.,'www.bolshoi.ru')]", "xpath:innerText"]
+      ],
+      "value": "www.bolshoi.ru"
+    }]
+  }, {
+    "id": "a5712de8-3d86-4f25-bd27-193887520589",
+    "name": "newEvent",
+    "commands": [{
+      "id": "130497e5-4289-4105-b39d-1b03805bdef1",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7f708ca2-c367-4f0b-ae33-3c4b63d6811e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x999",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "41b6eac4-e40a-424e-a98b-ae77a24c51a2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Весы",
+      "targets": [
+        ["linkText=Весы", "linkText"],
+        ["css=tr:nth-child(3) > td:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Весы')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performance?id=2')]", "xpath:href"],
+        ["xpath=//tr[3]/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Весы')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc32c1e3-4b66-43c1-b0f2-9800c2f9e340",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Изменить спектакль",
+      "targets": [
+        ["linkText=Изменить спектакль", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Изменить спектакль')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/changePerformance?perf_id=2')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Изменить спектакль')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "de853828-92dd-499a-a63d-6493394ffa06",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Добавить сеанс",
+      "targets": [
+        ["linkText=Добавить сеанс", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Добавить сеанс')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/addEvent?perf_id=2')]", "xpath:href"],
+        ["xpath=//body/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Добавить сеанс')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "af102233-1245-4b55-83fe-6c1f1dd6b3b7",
+      "comment": "",
+      "command": "click",
+      "target": "id=date",
+      "targets": [
+        ["id=date", "id"],
+        ["name=date", "name"],
+        ["css=#date", "css:finder"],
+        ["xpath=//input[@id='date']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e38592c1-162c-4bcd-9e13-ad9176c73ad3",
+      "comment": "",
+      "command": "type",
+      "target": "id=date",
+      "targets": [
+        ["id=date", "id"],
+        ["name=date", "name"],
+        ["css=#date", "css:finder"],
+        ["xpath=//input[@id='date']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2021-03-01"
+    }, {
+      "id": "0fba76ce-2cc7-4825-9d74-d557d76689a1",
+      "comment": "",
+      "command": "click",
+      "target": "id=time",
+      "targets": [
+        ["id=time", "id"],
+        ["name=time", "name"],
+        ["css=#time", "css:finder"],
+        ["xpath=//input[@id='time']", "xpath:attributes"],
+        ["xpath=//li[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea8c738f-b21f-42fc-91bc-46995aa2fa4e",
+      "comment": "",
+      "command": "type",
+      "target": "id=time",
+      "targets": [
+        ["id=time", "id"],
+        ["name=time", "name"],
+        ["css=#time", "css:finder"],
+        ["xpath=//input[@id='time']", "xpath:attributes"],
+        ["xpath=//li[3]/input", "xpath:position"]
+      ],
+      "value": "08:30"
+    }, {
+      "id": "626102ab-3a2e-4065-9159-138717153dc4",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e81c4cc-08d8-481b-a539-d366a915a69f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=td li:nth-child(2)",
+      "targets": [
+        ["css=td li:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]/ul/li[2]", "xpath:position"],
+        ["xpath=//li[contains(.,'2021-03-01T08:30')]", "xpath:innerText"]
+      ],
+      "value": "2021-03-01T08:30"
+    }, {
+      "id": "a8faadf2-dbf8-4915-b6af-c5212753ac2f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=2021-03-01T08:30",
+      "targets": [
+        ["linkText=2021-03-01T08:30", "linkText"],
+        ["css=td li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'2021-03-01T08:30')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/schedule?id=4')]", "xpath:href"],
+        ["xpath=//td[2]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'2021-03-01T08:30')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea19f36e-f3a2-4390-bbd7-a8a227fbd2f4",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Удалить сеанс')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bee7d756-c8a7-4274-a81e-a1b9fa66dcbb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(3) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(3) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[3]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'2021-03-21T19:15')]", "xpath:innerText"]
+      ],
+      "value": "2021-03-21T19:15"
+    }]
+  }, {
+    "id": "e2822238-af4a-4576-9b52-5d3e73adb659",
+    "name": "buyTicket",
+    "commands": [{
+      "id": "0f25cd86-c086-4091-8301-f40e30725087",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7662f12b-1ba2-4616-9a7f-944fadc10289",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x999",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "12658202-7303-4258-89c4-cc4d908f0a71",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Весы",
+      "targets": [
+        ["linkText=Весы", "linkText"],
+        ["css=tr:nth-child(3) > td:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Весы')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performance?id=2')]", "xpath:href"],
+        ["xpath=//tr[3]/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Весы')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e5ee56b-2628-401c-a51f-3e8647b586af",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=2021-03-21T19:15",
+      "targets": [
+        ["linkText=2021-03-21T19:15", "linkText"],
+        ["css=td a", "css:finder"],
+        ["xpath=//a[contains(text(),'2021-03-21T19:15')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/schedule?id=2')]", "xpath:href"],
+        ["xpath=//td[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'2021-03-21T19:15')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d015ce8-defc-417e-b4d7-7c70b9be5f52",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Билеты",
+      "targets": [
+        ["linkText=Билеты", "linkText"],
+        ["css=div:nth-child(2) > .mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Билеты')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/tickets?event_id=2')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Билеты')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b6371c6-eb94-4646-801e-637afb731d27",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(2) li:nth-child(2) button",
+      "targets": [
+        ["css=tr:nth-child(2) li:nth-child(2) button", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Купить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b92effb5-51ff-463d-b615-efb35c38f7dc",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(2) li:nth-child(3)",
+      "targets": [
+        ["css=tr:nth-child(2) li:nth-child(3)", "css:finder"],
+        ["xpath=//td[2]/ul/li[3]", "xpath:position"]
+      ],
+      "value": "1 3 2500.0\\nКупить"
+    }, {
+      "id": "2bd60458-fdc7-4bfb-89ce-1172d689962a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Изменить билеты",
+      "targets": [
+        ["linkText=Изменить билеты", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Изменить билеты')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/changeTickets?event_id=2')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Изменить билеты')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a5ba898-4453-4647-9d44-b0cc6bcafe3a",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(6) #cost",
+      "targets": [
+        ["css=form:nth-child(6) #cost", "css:finder"],
+        ["xpath=(//input[@id='cost'])[6]", "xpath:attributes"],
+        ["xpath=//form[6]/li/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c54eeb90-4ac5-4cdd-84c9-4d3bb50ff2b0",
+      "comment": "",
+      "command": "type",
+      "target": "css=form:nth-child(6) #cost",
+      "targets": [
+        ["css=form:nth-child(6) #cost", "css:finder"],
+        ["xpath=(//input[@id='cost'])[6]", "xpath:attributes"],
+        ["xpath=//form[6]/li/input", "xpath:position"]
+      ],
+      "value": "2500"
+    }, {
+      "id": "5a9fd8c5-40b0-405a-ac1b-62ce9156c039",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(6) button",
+      "targets": [
+        ["css=form:nth-child(6) button", "css:finder"],
+        ["xpath=(//button[@type='submit'])[6]", "xpath:attributes"],
+        ["xpath=//form[6]/li/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cccef3e9-8fde-4582-98c0-66ab05b4c914",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Спектакли",
+      "targets": [
+        ["linkText=Спектакли", "linkText"],
+        ["css=li:nth-child(2) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Спектакли')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performances')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Спектакли')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8e603ba-2ffa-40e3-a2b4-d9fb56c1dd13",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Весы",
+      "targets": [
+        ["linkText=Весы", "linkText"],
+        ["css=tr:nth-child(3) > td:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Весы')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performance?id=2')]", "xpath:href"],
+        ["xpath=//tr[3]/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Весы')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce317bb2-75c5-4c1a-8354-1588590700e9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=2021-03-21T19:15",
+      "targets": [
+        ["linkText=2021-03-21T19:15", "linkText"],
+        ["css=td a", "css:finder"],
+        ["xpath=//a[contains(text(),'2021-03-21T19:15')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/schedule?id=2')]", "xpath:href"],
+        ["xpath=//td[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'2021-03-21T19:15')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fcedc7d6-7136-44e4-85df-3aa634d019d8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Билеты",
+      "targets": [
+        ["linkText=Билеты", "linkText"],
+        ["css=div:nth-child(2) > .mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Билеты')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/tickets?event_id=2')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Билеты')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0da566e3-e515-4173-8276-fbf7a74a4614",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(2) ul",
+      "targets": [
+        ["css=tr:nth-child(2) ul", "css:finder"],
+        ["xpath=//td[2]/ul", "xpath:position"]
+      ],
+      "value": "Ряд Место Стоимость\\n1 2 2500.0\\nКупить\\n1 3 2500.0\\nКупить\\n2 1 2100.0\\nКупить\\n2 2 2100.0\\nКупить\\n2 3 2100.0\\nКупить\\n1 1 2500.0\\nКупить"
+    }]
+  }, {
+    "id": "d9e260ec-2dc5-49c2-b039-dd12e91c79ff",
+    "name": "newPerformance",
+    "commands": [{
+      "id": "4407d4e4-d6ee-45a0-aae0-f34fc7ed2941",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c6b86dce-c49f-4a74-b6bc-bfc78cd4d25e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x999",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8f6ff78e-0d11-4daa-965c-4a790fc50b55",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58c3b157-8596-4670-8f20-9bb817f9b841",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Добавить спектакль",
+      "targets": [
+        ["linkText=Добавить спектакль", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Добавить спектакль')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/addPerformance')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Добавить спектакль')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1468b25-c167-4c14-954e-caf317d8c4a0",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "007c0516-5845-4202-ab4b-443fcbd844df",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Тест"
+    }, {
+      "id": "ee1699a5-504f-44fd-9349-49905a904829",
+      "comment": "",
+      "command": "click",
+      "target": "css=form li:nth-child(2)",
+      "targets": [
+        ["css=form li:nth-child(2)", "css:finder"],
+        ["xpath=//form/ul/li[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9041631-eb99-45ad-a118-59c89b239cc0",
+      "comment": "",
+      "command": "click",
+      "target": "id=duration",
+      "targets": [
+        ["id=duration", "id"],
+        ["name=duration", "name"],
+        ["css=#duration", "css:finder"],
+        ["xpath=//input[@id='duration']", "xpath:attributes"],
+        ["xpath=//li[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc37d81d-35e6-4c11-82be-c17967ec4981",
+      "comment": "",
+      "command": "type",
+      "target": "id=duration",
+      "targets": [
+        ["id=duration", "id"],
+        ["name=duration", "name"],
+        ["css=#duration", "css:finder"],
+        ["xpath=//input[@id='duration']", "xpath:attributes"],
+        ["xpath=//li[2]/input", "xpath:position"]
+      ],
+      "value": "01:30"
+    }, {
+      "id": "6822497e-eea3-4a48-8b46-0cbad951526a",
+      "comment": "",
+      "command": "click",
+      "target": "id=start",
+      "targets": [
+        ["id=start", "id"],
+        ["name=start", "name"],
+        ["css=#start", "css:finder"],
+        ["xpath=//input[@id='start']", "xpath:attributes"],
+        ["xpath=//li[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da1155aa-08f4-4773-831f-4fa750527010",
+      "comment": "",
+      "command": "type",
+      "target": "id=start",
+      "targets": [
+        ["id=start", "id"],
+        ["name=start", "name"],
+        ["css=#start", "css:finder"],
+        ["xpath=//input[@id='start']", "xpath:attributes"],
+        ["xpath=//li[3]/input", "xpath:position"]
+      ],
+      "value": "2021-05-01"
+    }, {
+      "id": "050e491c-6823-4339-b495-5b260cfb4e94",
+      "comment": "",
+      "command": "click",
+      "target": "id=finish",
+      "targets": [
+        ["id=finish", "id"],
+        ["name=finish", "name"],
+        ["css=#finish", "css:finder"],
+        ["xpath=//input[@id='finish']", "xpath:attributes"],
+        ["xpath=//li[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b491bc1-2872-4c34-9be5-7413f491944e",
+      "comment": "",
+      "command": "type",
+      "target": "id=finish",
+      "targets": [
+        ["id=finish", "id"],
+        ["name=finish", "name"],
+        ["css=#finish", "css:finder"],
+        ["xpath=//input[@id='finish']", "xpath:attributes"],
+        ["xpath=//li[4]/input", "xpath:position"]
+      ],
+      "value": "2021-05-31"
+    }, {
+      "id": "946c7cb9-d7ee-4225-9fad-2b0f4bb36727",
+      "comment": "",
+      "command": "click",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "391b26c7-2a9d-4d4f-bfcb-76bc2adf4093",
+      "comment": "",
+      "command": "type",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Тест"
+    }, {
+      "id": "31910c9b-4e29-46b9-b68d-9cb52b60c522",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffcf8689-9719-400d-b4a1-2d5de3a4ed3f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(4) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(4) > td:nth-child(1)", "css:finder"],
+        ["xpath=//tr[4]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Тест')]", "xpath:innerText"]
+      ],
+      "value": "Тест"
+    }, {
+      "id": "24b4a9ed-cfe6-4e3f-9f3b-bf7a57b556a6",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(4) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(4) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[4]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'2021-05-01 - 2021-05-31')]", "xpath:innerText"]
+      ],
+      "value": "2021-05-01 - 2021-05-31"
+    }, {
+      "id": "18db7166-eab5-48a6-bf3d-ce08faf2a5d7",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(4) > td:nth-child(3)",
+      "targets": [
+        ["css=tr:nth-child(4) > td:nth-child(3)", "css:finder"],
+        ["xpath=//tr[4]/td[3]", "xpath:position"]
+      ],
+      "value": "Большой театр"
+    }, {
+      "id": "e53c95b0-8afc-4f35-b350-284ddffb5e2f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Тест",
+      "targets": [
+        ["linkText=Тест", "linkText"],
+        ["css=tr:nth-child(4) > td:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Тест')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performance?id=3')]", "xpath:href"],
+        ["xpath=//tr[4]/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Тест')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8404b415-db14-4730-a6fc-53d9aaed501d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(2) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(2) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[2]/td[2]", "xpath:position"]
+      ],
+      "value": "Тест"
+    }, {
+      "id": "318f0f34-61ea-4fcf-bedd-bf17eca1238f",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Удалить спектакль')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "26dbd4ce-23dc-4730-b796-4ee78d78f03d",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "14c9079c-a7f6-4a0b-90b6-72ef046840f8",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c22d5ddc-6923-4dcf-a76e-9c5573735d21",
+    "name": "changeTicket",
+    "commands": [{
+      "id": "753f457d-b713-47f2-839f-52ede1b4ef85",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8852f1e2-4ea0-4f7d-ab3e-c09fbf10897a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x999",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e63372c6-2247-402c-a729-ca7aaefa9888",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(3) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(3) > td:nth-child(1)", "css:finder"],
+        ["xpath=//tr[3]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Весы')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6cc32e85-bdf5-4c91-89fd-b866cee3b622",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Весы",
+      "targets": [
+        ["linkText=Весы", "linkText"],
+        ["css=tr:nth-child(3) > td:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Весы')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performance?id=2')]", "xpath:href"],
+        ["xpath=//tr[3]/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Весы')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c19498ab-2c16-48d3-adbe-50eecaca3cb1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=2021-03-21T19:15",
+      "targets": [
+        ["linkText=2021-03-21T19:15", "linkText"],
+        ["css=td a", "css:finder"],
+        ["xpath=//a[contains(text(),'2021-03-21T19:15')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/schedule?id=2')]", "xpath:href"],
+        ["xpath=//td[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'2021-03-21T19:15')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "63193b45-8521-4c72-979d-ff67f1bb29c5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Билеты",
+      "targets": [
+        ["linkText=Билеты", "linkText"],
+        ["css=div:nth-child(2) > .mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Билеты')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/tickets?event_id=2')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Билеты')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2f51752-9c35-4e66-bbdf-597c42c162ae",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(3) li:nth-child(4) > form",
+      "targets": [
+        ["css=tr:nth-child(3) li:nth-child(4) > form", "css:finder"],
+        ["xpath=//tr[3]/td[2]/ul/li[4]/form", "xpath:position"]
+      ],
+      "value": "Купить"
+    }, {
+      "id": "0024f952-c23a-4c74-8e84-0fdb13dd7401",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Изменить билеты",
+      "targets": [
+        ["linkText=Изменить билеты", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Изменить билеты')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/changeTickets?event_id=2')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Изменить билеты')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "47e2e5e4-2577-461f-8541-e028b4c11808",
+      "comment": "",
+      "command": "select",
+      "target": "css=form:nth-child(12) #in_stock",
+      "targets": [],
+      "value": "label=Нет"
+    }, {
+      "id": "35f712c9-56dc-4626-bef4-53605ff390b1",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=form:nth-child(12) #in_stock",
+      "targets": [
+        ["css=form:nth-child(12) #in_stock", "css:finder"],
+        ["xpath=(//select[@id='in_stock'])[12]", "xpath:attributes"],
+        ["xpath=//form[12]/li/select", "xpath:position"]
+      ],
+      "value": "-473.26251220703125,-463.20001220703125"
+    }, {
+      "id": "2eaf9152-6df1-4777-a2a2-cf64633183b8",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=form:nth-child(12) #in_stock",
+      "targets": [
+        ["css=form:nth-child(12) #in_stock", "css:finder"],
+        ["xpath=(//select[@id='in_stock'])[12]", "xpath:attributes"],
+        ["xpath=//form[12]/li/select", "xpath:position"]
+      ],
+      "value": "-473.26251220703125,-463.20001220703125"
+    }, {
+      "id": "46ba81ea-82dd-48f0-ab05-e5319d91eb47",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=form:nth-child(12) #in_stock",
+      "targets": [
+        ["css=form:nth-child(12) #in_stock", "css:finder"],
+        ["xpath=(//select[@id='in_stock'])[12]", "xpath:attributes"],
+        ["xpath=//form[12]/li/select", "xpath:position"]
+      ],
+      "value": "-473.26251220703125,-463.20001220703125"
+    }, {
+      "id": "3a7a3547-47b6-4749-a110-53a0e424ddc6",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(12) #in_stock",
+      "targets": [
+        ["css=form:nth-child(12) #in_stock", "css:finder"],
+        ["xpath=(//select[@id='in_stock'])[12]", "xpath:attributes"],
+        ["xpath=//form[12]/li/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac402bbc-e73f-4f9b-a2a4-6b411eb27c31",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(12) button",
+      "targets": [
+        ["css=form:nth-child(12) button", "css:finder"],
+        ["xpath=(//button[@type='submit'])[12]", "xpath:attributes"],
+        ["xpath=//form[12]/li/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7f9e2cb-ecc5-4e55-b217-33d3df2161e9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Спектакли",
+      "targets": [
+        ["linkText=Спектакли", "linkText"],
+        ["css=li:nth-child(2) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Спектакли')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performances')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Спектакли')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "387d8ad0-c5f3-421e-8cb0-b9f4a9d27c02",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Весы",
+      "targets": [
+        ["linkText=Весы", "linkText"],
+        ["css=tr:nth-child(3) > td:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Весы')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performance?id=2')]", "xpath:href"],
+        ["xpath=//tr[3]/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Весы')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "55caa355-ceec-4c59-b1e3-6137ea641e4b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=2021-03-21T19:15",
+      "targets": [
+        ["linkText=2021-03-21T19:15", "linkText"],
+        ["css=td a", "css:finder"],
+        ["xpath=//a[contains(text(),'2021-03-21T19:15')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/schedule?id=2')]", "xpath:href"],
+        ["xpath=//td[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'2021-03-21T19:15')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9f790ef-27e8-460c-9cae-ec1e9c72175a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Билеты",
+      "targets": [
+        ["linkText=Билеты", "linkText"],
+        ["css=div:nth-child(2) > .mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Билеты')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/tickets?event_id=2')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Билеты')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e956b8d-a93e-4a9d-9056-f12b1e413c63",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(3) ul",
+      "targets": [
+        ["css=tr:nth-child(3) ul", "css:finder"],
+        ["xpath=//tr[3]/td[2]/ul", "xpath:position"]
+      ],
+      "value": "Ряд Место Стоимость\\n1 2 2300.0\\nКупить\\n1 3 2300.0\\nКупить\\n2 1 1900.0\\nКупить\\n2 2 1900.0\\nКупить\\n2 3 1900.0\\nКупить"
+    }]
+  }, {
+    "id": "3d37d34d-3ef9-42ab-965a-45bb7a040681",
+    "name": "newMember",
+    "commands": [{
+      "id": "77668a16-d6c8-4854-98ff-fac078b80bc8",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "48846956-5c29-44dc-b2ce-79315f182685",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x999",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a360f796-bd79-4ebd-9a24-f7201cfb4b5d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Участники",
+      "targets": [
+        ["linkText=Участники", "linkText"],
+        ["css=li:nth-child(5) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Участники')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/members')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Участники')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c11cd40-bbbf-4787-a894-b1e055252e45",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Спектакли",
+      "targets": [
+        ["linkText=Спектакли", "linkText"],
+        ["css=li:nth-child(2) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Спектакли')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performances')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Спектакли')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "315cc3b7-6d06-433f-9656-53ddcec87521",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Весы",
+      "targets": [
+        ["linkText=Весы", "linkText"],
+        ["css=tr:nth-child(3) > td:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Весы')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performance?id=2')]", "xpath:href"],
+        ["xpath=//tr[3]/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Весы')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eab96229-b3ab-46f2-b9f0-1f56173142be",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Изменить спектакль",
+      "targets": [
+        ["linkText=Изменить спектакль", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Изменить спектакль')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/changePerformance?perf_id=2')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Изменить спектакль')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac5d19be-def7-40c4-b276-590b252c7208",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(8)",
+      "targets": [
+        ["css=button:nth-child(8)", "css:finder"],
+        ["xpath=//ul/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Добавить нового человека')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "060d23a1-bde9-4725-96b4-18c8915fe8db",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64460b14-bba7-467b-9536-7b11102de58c",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Тест"
+    }, {
+      "id": "60e00da9-18c5-4311-9ea9-aeb44d4e9828",
+      "comment": "",
+      "command": "click",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a1c98c0-76a5-44ef-9dc1-62b79c886563",
+      "comment": "",
+      "command": "type",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "тест"
+    }, {
+      "id": "d8e6fc2c-0b87-46bf-b57c-496d735a8a48",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1a03ae0-05cf-4f5a-8937-10ae466063ed",
+      "comment": "",
+      "command": "click",
+      "target": "css=.logo",
+      "targets": [
+        ["css=.logo", "css:finder"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "83c7b9b9-746e-420d-bf49-477985d5bc66",
+      "comment": "",
+      "command": "click",
+      "target": "css=ul",
+      "targets": [
+        ["css=ul", "css:finder"],
+        ["xpath=//ul", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9ceeb1d-8d81-47d6-9217-9a734ab8fd10",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Участники",
+      "targets": [
+        ["linkText=Участники", "linkText"],
+        ["css=li:nth-child(5) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Участники')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/members')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Участники')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "22e27f85-d60a-4f69-babb-2b7b3a6e5a58",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(9) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(9) > td:nth-child(1)", "css:finder"],
+        ["xpath=//tr[9]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Тест')]", "xpath:innerText"]
+      ],
+      "value": "Тест"
+    }, {
+      "id": "0f700266-6d5f-47fd-aa91-0096235beb1e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(9) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(9) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[9]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'тест')]", "xpath:innerText"]
+      ],
+      "value": "тест"
+    }, {
+      "id": "a616e2fa-578e-4eb8-a8c2-8a9e7bf72fa3",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(9) button",
+      "targets": [
+        ["css=tr:nth-child(9) button", "css:finder"],
+        ["xpath=//tr[9]/td[3]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5687ed97-ae27-4ecf-9108-198da5b92667",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "05e36749-b129-4c93-b85f-e8966f4b83a5",
+    "name": "checkMenu",
+    "commands": [{
+      "id": "a9fd865e-fbd7-47c5-866b-04033633e7fa",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "375a1b63-57ab-4145-894c-000c46c1e1a9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x999",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "797b435a-958f-481a-bd65-1b9b71301a26",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Билеты в театр",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a2edc330-c1fb-456b-806c-2669cb923c3f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Спектакли",
+      "targets": [
+        ["linkText=Спектакли", "linkText"],
+        ["css=li:nth-child(2) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Спектакли')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performances')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Спектакли')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a1e016d-379a-4aa3-8150-ab1128483c0b",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Билеты в театр",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e8e67486-1271-4ade-896d-7c5ce0c0f020",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Театры",
+      "targets": [
+        ["linkText=Театры", "linkText"],
+        ["css=li:nth-child(3) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Театры')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/theaters')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Театры')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2abaf096-5cca-4995-896d-2dfad7069819",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Контакты",
+      "targets": [
+        ["linkText=Контакты", "linkText"],
+        ["css=li:nth-child(4) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Контакты')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/contacts')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Контакты')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5868c6e9-181b-4d25-8cf1-47368e70d97b",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Театры",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b0fdb1f0-9f1c-41f6-9f76-418b67ea0beb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Участники",
+      "targets": [
+        ["linkText=Участники", "linkText"],
+        ["css=li:nth-child(5) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Участники')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/members')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Участники')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5c3269b-5ab1-4c59-8774-75cc5efa89d1",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Участники",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b9291353-ffef-47ed-adc2-1f253ea6d19e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Театры",
+      "targets": [
+        ["linkText=Театры", "linkText"],
+        ["css=li:nth-child(3) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Театры')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/theaters')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Театры')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8aa3f682-d5be-4cc9-aa66-03cb0425cd6b",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Театры",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f52d69b0-f34b-4688-a175-74522529a976",
+    "name": "wrongAddEvent",
+    "commands": [{
+      "id": "1447b334-ad4c-4a9c-bcb5-6095d441b989",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fac4f433-d6e6-4dce-9094-3d0ac23f0eb6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x999",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c938863c-5884-4464-b37c-af037ed45b88",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Спектакли",
+      "targets": [
+        ["linkText=Спектакли", "linkText"],
+        ["css=li:nth-child(2) > .menu", "css:finder"],
+        ["xpath=//a[contains(text(),'Спектакли')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performances')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Спектакли')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "03b0c5c8-95a3-4ffc-a45c-eff9d8dba8bc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Дон Карлос",
+      "targets": [
+        ["linkText=Дон Карлос", "linkText"],
+        ["css=tr:nth-child(2) > td:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Дон Карлос')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/performance?id=1')]", "xpath:href"],
+        ["xpath=//td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Дон Карлос')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4645b35f-2e48-4b23-8301-98e3c41ca01d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Изменить спектакль",
+      "targets": [
+        ["linkText=Изменить спектакль", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Изменить спектакль')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/changePerformance?perf_id=1')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Изменить спектакль')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a5522a3-79b4-44a3-80d7-a7aca946dad0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Добавить сеанс",
+      "targets": [
+        ["linkText=Добавить сеанс", "linkText"],
+        ["css=.mybutton", "css:finder"],
+        ["xpath=//a[contains(text(),'Добавить сеанс')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/addEvent?perf_id=1')]", "xpath:href"],
+        ["xpath=//body/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Добавить сеанс')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a0bdcf92-5ef4-4bd0-a546-5ef13a396a2f",
+      "comment": "",
+      "command": "click",
+      "target": "id=date",
+      "targets": [
+        ["id=date", "id"],
+        ["name=date", "name"],
+        ["css=#date", "css:finder"],
+        ["xpath=//input[@id='date']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "deea75ac-e0a2-4957-a219-09e6af2144f4",
+      "comment": "",
+      "command": "type",
+      "target": "id=date",
+      "targets": [
+        ["id=date", "id"],
+        ["name=date", "name"],
+        ["css=#date", "css:finder"],
+        ["xpath=//input[@id='date']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2021-05-01"
+    }, {
+      "id": "86479c01-726a-4b14-8765-bfa4d714fa54",
+      "comment": "",
+      "command": "click",
+      "target": "id=time",
+      "targets": [
+        ["id=time", "id"],
+        ["name=time", "name"],
+        ["css=#time", "css:finder"],
+        ["xpath=//input[@id='time']", "xpath:attributes"],
+        ["xpath=//li[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f527693e-6487-470e-b78f-3432373e53da",
+      "comment": "",
+      "command": "type",
+      "target": "id=time",
+      "targets": [
+        ["id=time", "id"],
+        ["name=time", "name"],
+        ["css=#time", "css:finder"],
+        ["xpath=//input[@id='time']", "xpath:attributes"],
+        ["xpath=//li[3]/input", "xpath:position"]
+      ],
+      "value": "01:30"
+    }, {
+      "id": "ce6429f1-c195-4818-b393-049e15a90b61",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=hall",
+      "targets": [
+        ["id=hall", "id"],
+        ["name=hall_name", "name"],
+        ["css=#hall", "css:finder"],
+        ["xpath=//select[@id='hall']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'Новая сцена')]", "xpath:innerText"]
+      ],
+      "value": "69.75,9"
+    }, {
+      "id": "3e61d503-70bd-43d1-a983-b80baf5d09b8",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=hall",
+      "targets": [
+        ["id=hall", "id"],
+        ["name=hall_name", "name"],
+        ["css=#hall", "css:finder"],
+        ["xpath=//select[@id='hall']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'Новая сцена')]", "xpath:innerText"]
+      ],
+      "value": "69.75,9"
+    }, {
+      "id": "20fa59a0-4dd2-40d4-b39d-129a8f630a29",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=hall",
+      "targets": [
+        ["id=hall", "id"],
+        ["name=hall_name", "name"],
+        ["css=#hall", "css:finder"],
+        ["xpath=//select[@id='hall']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'Новая сцена')]", "xpath:innerText"]
+      ],
+      "value": "69.75,9"
+    }, {
+      "id": "080bd4f3-8191-4d02-8753-a3a178012438",
+      "comment": "",
+      "command": "click",
+      "target": "id=hall",
+      "targets": [
+        ["id=hall", "id"],
+        ["name=hall_name", "name"],
+        ["css=#hall", "css:finder"],
+        ["xpath=//select[@id='hall']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'Новая сцена')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "296a2538-bdcc-456e-b90d-5dac9504fc53",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Сохранить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f9e421d-0ace-4819-b1cd-d7ae5686f62f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(3) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(3) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[3]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'2021-03-15T15:30')]", "xpath:innerText"]
+      ],
+      "value": "2021-03-15T15:30"
+    }]
+  }],
+  "suites": [{
+    "id": "295ee596-f05f-4d30-a365-fabf4893bfa3",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
