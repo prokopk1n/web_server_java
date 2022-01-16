@@ -10,6 +10,9 @@
     ant dbcreate -> create db and user appadmin
     ant dbinsert -> fill db
 
+# База данных
+![alt text](pictures/DB_scheme.jpg) 
+
 # Текущая версия сайта
 ## Главное меню (страница всех спектаклей)
 ![alt text](pictures/performances.png) 
