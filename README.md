@@ -1,7 +1,7 @@
 # Описание
 Сайт по продаже билетов в театр.
 
-# Main commands
+# Основные команды
     mvn clean -> delete compile results
     mvn compile -> compile project
     mvn mvn exec:java -> launch application
