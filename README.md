@@ -1,3 +1,6 @@
+# Описание
+Сайт по продаже билетов в театр.
+
 # Main commands
     mvn clean -> delete compile results
     mvn compile -> compile project
@@ -6,9 +9,6 @@
     mvn test -Dtest=webTest -> web tests(Server must be launched!)
     ant dbcreate -> create db and user appadmin
     ant dbinsert -> fill db
-
-# Результаты тестирования веб-приложения
-![alt text](pictures/selenium_ide_result.png) 
 
 # Текущая версия сайта
 ## Главное меню (страница всех спектаклей)
